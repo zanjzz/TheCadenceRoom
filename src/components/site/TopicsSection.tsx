@@ -1,4 +1,5 @@
 import { useState } from "react";
+import OptionWheel from "./OptionWheel";
 import { topics } from "@/lib/topics";
 
 export default function TopicsSection() {
@@ -11,29 +12,24 @@ export default function TopicsSection() {
         <div className="mb-8">
           <span className="eyebrow">Topics</span>
           <h2 className="mt-3 text-3xl md:text-5xl">Pick your lane</h2>
+          <p className="text-muted-foreground mt-3 max-w-md text-sm font-medium">
+            Scroll, drag, or click a topic. Arrow keys work too.
+          </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div className="brut-border bg-card relative h-[320px] overflow-hidden md:h-[420px]">
-            <ul className="flex h-full flex-col justify-center gap-1 overflow-y-auto p-4">
-              {topics.map((topic, index) => (
-                <li key={topic.name}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveIndex(index)}
-                    aria-current={index === activeIndex}
-                    className={`block w-full text-left font-[family-name:var(--font-display)] text-2xl uppercase leading-tight transition-all duration-200 md:text-4xl ${
-                      index === activeIndex
-                        ? "text-foreground translate-x-2 underline decoration-accent decoration-[5px] underline-offset-8"
-                        : "text-muted-foreground hover:translate-x-1 hover:text-foreground"
-                    }`}
-                  >
-                    {topic.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <OptionWheel
+              items={topics.map((topic) => topic.name)}
+              defaultSelected={0}
+              onChange={(index) => setActiveIndex(index)}
+              fontSize={2}
+              spacing={1.6}
+              inset={20}
+              className="uppercase"
+            />
           </div>
+
 
           <div className="brut-border brut-shadow bg-card overflow-hidden">
             <img
