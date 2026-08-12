@@ -328,13 +328,13 @@
 }
 
 .about-pfp img {
-  width: 76px;
-  height: 76px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   object-position: top;
   border: 3px solid var(--border);
   border-bottom-color: var(--accent);
-  border-left-color: var(--accent);
+  border-right-color: var(--accent);
   box-shadow: var(--shadow-brut-sm);
   background: var(--background);
 }
@@ -349,8 +349,8 @@
 
 @media (min-width: 768px) {
   .about-pfp img {
-    width: 96px;
-    height: 96px;
+    width: 140px;
+    height: 140px;
   }
 }
 
@@ -436,14 +436,15 @@
 
 .chordnote-preview {
   position: relative;
-  border: 3px solid var(--muted-foreground);
-  border-top-color: var(--accent);
-  border-left-color: var(--accent);
+  border: 3px solid var(--border);
   background: var(--background);
   overflow: hidden;
   box-shadow: var(--shadow-brut);
 }
 
+:root:not(.light) .chordnote-preview {
+  --shadow-brut: 10px 10px 0 color-mix(in srgb, var(--primary-foreground) 18%, transparent);
+}
 
 .chordnote-preview::after {
   content: "";
@@ -454,6 +455,11 @@
   height: 0.6rem;
   background: var(--accent);
   opacity: 0.6;
+}
+
+:root:not(.light) .chordnote-btn {
+  --shadow-brut: 8px 8px 0 color-mix(in srgb, var(--primary-foreground) 16%, transparent);
+  --shadow-brut-sm: 5px 5px 0 color-mix(in srgb, var(--primary-foreground) 14%, transparent);
 }
 
 /* ---------- Markdown article body ---------- */

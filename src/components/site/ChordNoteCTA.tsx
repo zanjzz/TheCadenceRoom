@@ -34,7 +34,7 @@ export default function ChordNoteCTA() {
             </ul>
           </div>
           <div className="flex flex-col gap-4 md:justify-end">
-            <div className="chordnote-preview hidden max-h-[320px] flex-1 md:block">
+          <div className="chordnote-preview hidden max-h-[280px] flex-1 md:block">
               <img
                 src={previewAsset.url}
                 alt="ChordNote editor showing song details, transpose controls and lyrics input"
@@ -46,7 +46,7 @@ export default function ChordNoteCTA() {
               href="https://chordnote.me"
               target="_blank"
               rel="noreferrer"
-              className="brut-border brut-shadow brut-press bg-accent text-accent-foreground block px-7 py-4 text-center text-sm font-bold uppercase tracking-widest"
+              className="brut-border brut-shadow brut-press chordnote-btn bg-accent text-accent-foreground block px-7 py-4 text-center text-sm font-bold uppercase tracking-widest"
             >
               Open ChordNote
             </a>
