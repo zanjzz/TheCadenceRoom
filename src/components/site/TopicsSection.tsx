@@ -31,6 +31,9 @@ export default function TopicsSection() {
               fontSize={1.7}
               spacing={1.35}
               inset={4}
+              loop
+              fade={0.22}
+              minOpacity={0.14}
               className="uppercase"
             />
           </div>
