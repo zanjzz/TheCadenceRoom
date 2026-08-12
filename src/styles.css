@@ -201,9 +201,18 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8% 10%;
+  padding: 5rem 1.75rem 4.5rem;
   color: var(--accent-foreground);
   will-change: opacity;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .hero-featured__hero,
+  .hero-featured__article {
+    padding: 8% 10%;
+    overflow-y: visible;
+  }
 }
 
 .hero-featured__hero {
@@ -213,6 +222,7 @@
   opacity: 0;
   text-align: left;
 }
+
 
 .hero-featured__hero .hero-title {
   display: flex;
