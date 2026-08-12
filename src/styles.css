@@ -2,12 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 /*
- * Harmonic Progress design system — Neo-Brutalist music editorial.
- * Palette (fixed brand colors): #36ecde, #00203f, #e6e9ec, #222222
+ * Harmonic Progress design system.
+ * Dark-first palette: #080808 / #111111 / #f4f1e8 / #dfff00
+ * Light theme (.light on <html>): #f4f1e8 / #ffffff / #111111 / #c8e600
  */
+
 
 @theme inline {
   --radius-sm: 0px;
@@ -42,47 +44,47 @@
 
 :root {
   --radius: 0px;
-  --ink: #222222;
-  --background: #e6e9ec;
-  --foreground: #00203f;
-  --surface: #f4f6f8;
-  --surface-foreground: #00203f;
-  --card: #ffffff;
-  --card-foreground: #00203f;
-  --primary: #00203f;
-  --primary-foreground: #e6e9ec;
-  --secondary: #36ecde;
-  --secondary-foreground: #00203f;
-  --muted: #d7dce1;
-  --muted-foreground: #465b70;
-  --accent: #36ecde;
-  --accent-foreground: #00203f;
-  --destructive: #222222;
-  --border: #222222;
-  --shadow-brut: 8px 8px 0 var(--border);
-  --shadow-brut-sm: 4px 4px 0 var(--border);
+  --ink: #f4f1e8;
+  --background: #080808;
+  --foreground: #f4f1e8;
+  --surface: #111111;
+  --surface-foreground: #f4f1e8;
+  --card: #111111;
+  --card-foreground: #f4f1e8;
+  --primary: #dfff00;
+  --primary-foreground: #111111;
+  --secondary: #171717;
+  --secondary-foreground: #f4f1e8;
+  --muted: #1a1a1a;
+  --muted-foreground: #777777;
+  --accent: #dfff00;
+  --accent-foreground: #111111;
+  --destructive: #ff5c47;
+  --border: #2a2a2a;
+  --shadow-brut: 8px 8px 0 color-mix(in srgb, var(--accent) 18%, transparent);
+  --shadow-brut-sm: 4px 4px 0 color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
-.dark {
-  --ink: #e6e9ec;
-  --background: #00203f;
-  --foreground: #e6e9ec;
-  --surface: #012c52;
-  --surface-foreground: #e6e9ec;
-  --card: #012c52;
-  --card-foreground: #e6e9ec;
-  --primary: #36ecde;
-  --primary-foreground: #00203f;
-  --secondary: #e6e9ec;
-  --secondary-foreground: #00203f;
-  --muted: #073c6b;
-  --muted-foreground: #a9c0d3;
-  --accent: #36ecde;
-  --accent-foreground: #00203f;
-  --destructive: #e6e9ec;
-  --border: #e6e9ec;
-  --shadow-brut: 8px 8px 0 var(--border);
-  --shadow-brut-sm: 4px 4px 0 var(--border);
+.light {
+  --ink: #111111;
+  --background: #f4f1e8;
+  --foreground: #111111;
+  --surface: #ffffff;
+  --surface-foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --primary: #c8e600;
+  --primary-foreground: #111111;
+  --secondary: #ece8dc;
+  --secondary-foreground: #111111;
+  --muted: #e6e2d6;
+  --muted-foreground: #666666;
+  --accent: #c8e600;
+  --accent-foreground: #111111;
+  --destructive: #c53a24;
+  --border: #d6d6d6;
+  --shadow-brut: 8px 8px 0 color-mix(in srgb, #111111 12%, transparent);
+  --shadow-brut-sm: 4px 4px 0 color-mix(in srgb, #111111 14%, transparent);
 }
 
 @layer base {
@@ -92,14 +94,17 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 18px;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.7;
     overflow-x: hidden;
   }
+
 
   h1,
   h2,
@@ -365,4 +370,57 @@
 .prose-brut code {
   font-family: ui-monospace, monospace;
   font-size: 0.95rem;
+}
+
+@layer components {
+  /* ---------- Floating pill navigation ---------- */
+
+  .nav-pill {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 0.25);
+  }
+
+  .nav-pill--tight {
+    gap: 0;
+  }
+
+  .nav-pill a {
+    color: var(--muted-foreground);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  .nav-pill a:hover {
+    color: var(--foreground);
+  }
+
+  .nav-icon-btn {
+    display: grid;
+    place-items: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+    background: color-mix(in srgb, var(--surface) 70%, transparent);
+    color: var(--foreground);
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  .nav-icon-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
 }

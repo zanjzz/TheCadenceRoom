@@ -33,7 +33,7 @@ function BlogPost() {
   const { post } = Route.useLoaderData();
 
   return (
-    <article className="section-shell max-w-3xl py-12 md:py-20">
+    <article className="section-shell max-w-3xl pb-16 pt-28 md:pb-24 md:pt-36">
       <Link
         to="/"
         className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground inline-block px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest"
