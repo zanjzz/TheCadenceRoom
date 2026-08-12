@@ -49,19 +49,28 @@ function parseFrontmatter(raw: string) {
   return { data, body: raw.slice(match[0].length) };
 }
 
+/** ~200 words per minute, counted on the markdown body. */
+function estimateReadingMinutes(body: string): number {
+  const words = body.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 function toPost(filepath: string, raw: string): Post {
   const { data, body } = parseFrontmatter(raw);
   const slug = filepath.split("/").pop()!.replace(/\.md$/, "");
+  const category = (data["category"] as string) ?? "Uncategorised";
 
   return {
     slug,
     title: (data["title"] as string) ?? slug,
     date: (data["date"] as string) ?? "",
-    category: (data["category"] as string) ?? "Uncategorised",
+    category,
+    categorySlug: slugifyTopic(category),
     excerpt: (data["excerpt"] as string) ?? "",
     image: (data["image"] as string) ?? "/images/harmony.jpg",
     tags: (data["tags"] as string[]) ?? [],
     body,
+    readingMinutes: estimateReadingMinutes(body),
   };
 }
 
@@ -85,9 +94,14 @@ export function getPostBySlug(slug: string): Post | null {
   return posts.find((post) => post.slug === slug) ?? null;
 }
 
+export function getPostsByTopic(topicSlug: string): Post[] {
+  return posts.filter((post) => post.categorySlug === topicSlug);
+}
+
 export function getCategories(): string[] {
   return Array.from(new Set(posts.map((post) => post.category)));
 }
+
 
 export function formatPostDate(date: string): string {
   if (!date) return "";
