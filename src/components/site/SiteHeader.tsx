@@ -15,40 +15,38 @@ export default function SiteHeader() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="bg-background/95 sticky top-0 z-50 border-b-[3px] border-border backdrop-blur">
-      <div className="section-shell grid h-12 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 md:h-16">
-        <Link to="/" className="min-w-0 truncate font-[family-name:var(--font-display)] text-base uppercase tracking-tight md:text-xl">
+    <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4">
+      <div className="section-shell pointer-events-auto flex items-center justify-between gap-3">
+        <Link
+          to="/"
+          className="nav-pill font-[family-name:var(--font-display)] text-sm uppercase tracking-tight text-foreground md:text-base"
+        >
           Harmonic<span className="text-accent">.</span>Progress
         </Link>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="px-3 py-2 text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-accent-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+        <nav className="nav-pill hidden md:flex">
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
+        <div className="nav-pill gap-2 px-2">
           <button
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground grid h-8 w-8 place-items-center md:h-10 md:w-10"
+            className="nav-icon-btn"
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="brut-border brut-shadow-sm brut-press bg-accent text-accent-foreground grid h-8 w-8 place-items-center md:hidden"
+            className="nav-icon-btn md:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -56,17 +54,14 @@ export default function SiteHeader() {
       </div>
 
       {open ? (
-        <nav className="border-t-[3px] border-border md:hidden">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="block border-b-[3px] border-border px-4 py-3 text-sm font-bold uppercase tracking-widest last:border-b-0"
-            >
-              {item.label}
-            </a>
-          ))}
+        <nav className="section-shell pointer-events-auto mt-3 md:hidden">
+          <div className="nav-pill flex-col items-stretch gap-3 rounded-2xl px-5 py-4">
+            {navItems.map((item) => (
+              <a key={item.label} href={item.href} onClick={() => setOpen(false)}>
+                {item.label}
+              </a>
+            ))}
+          </div>
         </nav>
       ) : null}
     </header>
