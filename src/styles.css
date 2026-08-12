@@ -2,12 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 /*
- * Harmonic Progress design system — Neo-Brutalist music editorial.
- * Palette (fixed brand colors): #36ecde, #00203f, #e6e9ec, #222222
+ * Harmonic Progress design system.
+ * Dark-first palette: #080808 / #111111 / #f4f1e8 / #dfff00
+ * Light theme (.light on <html>): #f4f1e8 / #ffffff / #111111 / #c8e600
  */
+
 
 @theme inline {
   --radius-sm: 0px;
