@@ -318,6 +318,48 @@
   opacity: 0.7;
 }
 
+/* Small profile avatar in the hero top-right corner. */
+.hero-profile {
+  position: absolute;
+  top: 1.25rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.hero-profile img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  object-position: top;
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow-brut-sm);
+  background: var(--background);
+}
+
+.hero-profile span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-foreground);
+}
+
+@media (min-width: 768px) {
+  .hero-profile {
+    top: 1.75rem;
+    right: 2rem;
+  }
+
+  .hero-profile img {
+    width: 72px;
+    height: 72px;
+  }
+}
+
 /* ---------- Option wheel (Topics) ---------- */
 
 .topic-wheel-shell {
@@ -393,6 +435,44 @@
   opacity: 0.25;
   z-index: -1;
   pointer-events: none;
+}
+
+/* ---------- ChordNote preview image ---------- */
+
+.chordnote-preview {
+  position: relative;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--background);
+  overflow: hidden;
+  box-shadow: var(--shadow-brut-sm);
+}
+
+.chordnote-preview::before {
+  content: "Preview";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.chordnote-preview::after {
+  content: "";
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--accent);
+  opacity: 0.6;
 }
 
 /* ---------- Markdown article body ---------- */
