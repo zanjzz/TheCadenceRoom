@@ -55,7 +55,7 @@ export default function SiteHeader() {
 
       {open ? (
         <nav className="section-shell pointer-events-auto mt-3 md:hidden">
-          <div className="nav-pill flex-col items-stretch gap-3 rounded-2xl px-5 py-4">
+          <div className="nav-pill nav-sheet flex-col items-stretch gap-3 rounded-2xl px-4 py-4">
             {navItems.map((item) => (
               <a key={item.label} href={item.href} onClick={() => setOpen(false)}>
                 {item.label}
@@ -64,6 +64,7 @@ export default function SiteHeader() {
           </div>
         </nav>
       ) : null}
+
     </header>
   );
 }
