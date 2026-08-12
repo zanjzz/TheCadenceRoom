@@ -277,6 +277,28 @@
   }
 }
 
+/* Metadata label, deliberately not button-like: no fill, no border, just a rule. */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: color-mix(in srgb, var(--accent-foreground) 75%, transparent);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  width: 1.6rem;
+  height: 3px;
+  background: var(--accent-foreground);
+}
+
 .hero-featured__article h2 {
   font-size: clamp(1.6rem, 4.5vw, 2.8rem);
   line-height: 1.05;
