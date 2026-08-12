@@ -12,8 +12,8 @@ export default function LatestArticles() {
           <h2 className="mt-3 text-3xl md:text-5xl">Fresh off the score</h2>
         </div>
         <p className="text-muted-foreground max-w-sm text-sm font-medium">
-          Every article is a markdown file. Drop a new one into the content folder and it shows up
-          here automatically.
+          Explore what I've learned, discovered, and experienced throughout my journey as a
+          musician.
         </p>
       </div>
 

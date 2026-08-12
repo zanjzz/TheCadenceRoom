@@ -15,9 +15,10 @@ export default function AboutSection() {
           <div className="space-y-4 p-5 md:p-7">
             <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
             <p className="text-base font-medium">
-              Hey — I'm Zanj. Harmonic Progress is my personal blog, written for church musicians,
-              songwriters, and producers who want to understand chord progressions at a deeper
-              level — not as trivia, but as something you can hear and use in the middle of a song.
+              Hey — I'm Zanj. Harmonic Progress is my personal blog, written for fellow musicians,
+              songwriters, and producers who want to understand chord progressions on a deeper
+              level. I'm learning, experimenting, and sharing what I discover along the way — so
+              learn with me, and let's make some harmonic progress
             </p>
             <p className="text-muted-foreground text-base font-medium">
               Every article starts from a real playing problem: a turnaround that will not resolve,

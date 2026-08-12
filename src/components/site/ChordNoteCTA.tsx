@@ -4,7 +4,7 @@ const features = [
   "Transpose in one tap",
   "Nashville Number System",
   "Import existing chord sheets",
-  "Offline, local saving, easy sharing",
+  "Customize and export your sheets as an image",
 ];
 
 export default function ChordNoteCTA() {
