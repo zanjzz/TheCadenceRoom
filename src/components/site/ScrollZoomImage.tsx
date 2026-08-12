@@ -41,7 +41,7 @@ export default function ScrollZoomImage({
         height={900}
         loading="lazy"
         className="brut-border brut-shadow mx-auto block h-auto w-full max-w-full origin-center object-cover"
-        style={prefersReducedMotion ? undefined : { scale }}
+        style={prefersReducedMotion ? {} : { scale }}
       />
     </div>
   );
