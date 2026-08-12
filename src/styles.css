@@ -298,6 +298,28 @@
 
 /* ---------- Option wheel (Topics) ---------- */
 
+.topic-wheel-shell {
+  position: relative;
+  border: 3px solid var(--border);
+  background:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 35%),
+    radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 35%),
+    linear-gradient(135deg, var(--card) 0%, var(--surface) 100%);
+  box-shadow: var(--shadow-brut);
+}
+
+.topic-wheel-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}
+
 .option-wheel {
   --ow-text-color: var(--muted-foreground);
   --ow-active-color: var(--foreground);
@@ -329,13 +351,26 @@
   cursor: pointer;
   will-change: transform, opacity, filter;
   color: color-mix(in srgb, var(--ow-active-color) calc(var(--ow-p, 0) * 100%), var(--ow-text-color));
+  transition: color 0.15s ease;
 }
 
 .option-wheel__item--selected {
-  text-decoration: underline;
-  text-decoration-thickness: 4px;
-  text-underline-offset: 8px;
-  text-decoration-color: var(--accent);
+  color: var(--foreground);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.option-wheel__item--selected::after {
+  content: "";
+  position: absolute;
+  left: -0.25em;
+  right: -0.25em;
+  top: 50%;
+  height: 0.45em;
+  transform: translateY(-50%);
+  background: var(--accent);
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ---------- Markdown article body ---------- */
