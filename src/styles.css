@@ -371,3 +371,50 @@
   font-family: ui-monospace, monospace;
   font-size: 0.95rem;
 }
+
+/* ---------- Floating pill navigation ---------- */
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 4px 24px rgb(0 0 0 / 0.25);
+}
+
+.nav-pill a {
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-pill a:hover {
+  color: var(--foreground);
+}
+
+.nav-icon-btn {
+  display: grid;
+  place-items: center;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  color: var(--foreground);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.nav-icon-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
