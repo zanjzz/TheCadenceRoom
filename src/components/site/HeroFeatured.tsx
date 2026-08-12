@@ -196,7 +196,7 @@ export default function HeroFeatured({
             <div className="hero-featured__article" ref={featuredRef}>
               <div className="hero-featured__article-inner">
                 <div className="min-w-0">
-                  <span className="eyebrow">Featured Article</span>
+                  <span className="eyebrow bg-background text-foreground">Featured Article</span>
                   <h2>
                     <Link to="/blog/$slug" params={{ slug: post.slug }} className="underline-offset-4 hover:underline">
                       {post.title}
