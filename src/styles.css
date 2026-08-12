@@ -321,9 +321,6 @@
 /* Profile avatar inside the About card, next to the heading. */
 .about-pfp {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
   flex-shrink: 0;
 }
 
@@ -337,14 +334,6 @@
   border-right-color: var(--accent);
   box-shadow: var(--shadow-brut-sm);
   background: var(--background);
-}
-
-.about-pfp span {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--foreground);
 }
 
 @media (min-width: 768px) {
