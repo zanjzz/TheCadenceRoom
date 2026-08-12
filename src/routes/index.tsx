@@ -1,24 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
+import HeroFeatured from "@/components/site/HeroFeatured";
+import ScrollZoomImage from "@/components/site/ScrollZoomImage";
+import LatestArticles from "@/components/site/LatestArticles";
+import TopicsSection from "@/components/site/TopicsSection";
+import AboutSection from "@/components/site/AboutSection";
+import ChordNoteCTA from "@/components/site/ChordNoteCTA";
+import { getFeaturedPost } from "@/lib/posts";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Harmonic Progress — Chord Progressions & Practical Harmony";
+const description =
+  "Articles on chord progressions, voice leading, gospel and jazz harmony for church musicians, songwriters, and producers.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
+  const featured = getFeaturedPost();
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <HeroFeatured post={featured} />
+
+      <section className="section-shell py-16 md:py-24">
+        <div className="mb-8 max-w-xl">
+          <span className="eyebrow">In this issue</span>
+          <h2 className="mt-3 text-3xl md:text-5xl">
+            {featured ? featured.title : "Harmonic Progress"}
+          </h2>
+          <p className="text-muted-foreground mt-3 text-base font-medium">
+            {featured?.excerpt}
+          </p>
+        </div>
+        <ScrollZoomImage
+          src={featured?.image ?? "/images/harmony.jpg"}
+          alt={featured?.title ?? "Harmonic Progress featured artwork"}
+        />
+      </section>
+
+      <LatestArticles />
+      <TopicsSection />
+      <AboutSection />
+      <ChordNoteCTA />
+    </>
   );
 }
