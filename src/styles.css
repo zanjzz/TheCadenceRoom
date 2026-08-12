@@ -44,47 +44,47 @@
 
 :root {
   --radius: 0px;
-  --ink: #222222;
-  --background: #e6e9ec;
-  --foreground: #00203f;
-  --surface: #f4f6f8;
-  --surface-foreground: #00203f;
-  --card: #ffffff;
-  --card-foreground: #00203f;
-  --primary: #00203f;
-  --primary-foreground: #e6e9ec;
-  --secondary: #36ecde;
-  --secondary-foreground: #00203f;
-  --muted: #d7dce1;
-  --muted-foreground: #465b70;
-  --accent: #36ecde;
-  --accent-foreground: #00203f;
-  --destructive: #222222;
-  --border: #222222;
-  --shadow-brut: 8px 8px 0 var(--border);
-  --shadow-brut-sm: 4px 4px 0 var(--border);
+  --ink: #f4f1e8;
+  --background: #080808;
+  --foreground: #f4f1e8;
+  --surface: #111111;
+  --surface-foreground: #f4f1e8;
+  --card: #111111;
+  --card-foreground: #f4f1e8;
+  --primary: #dfff00;
+  --primary-foreground: #111111;
+  --secondary: #171717;
+  --secondary-foreground: #f4f1e8;
+  --muted: #1a1a1a;
+  --muted-foreground: #777777;
+  --accent: #dfff00;
+  --accent-foreground: #111111;
+  --destructive: #ff5c47;
+  --border: #2a2a2a;
+  --shadow-brut: 8px 8px 0 color-mix(in srgb, var(--accent) 18%, transparent);
+  --shadow-brut-sm: 4px 4px 0 color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
-.dark {
-  --ink: #e6e9ec;
-  --background: #00203f;
-  --foreground: #e6e9ec;
-  --surface: #012c52;
-  --surface-foreground: #e6e9ec;
-  --card: #012c52;
-  --card-foreground: #e6e9ec;
-  --primary: #36ecde;
-  --primary-foreground: #00203f;
-  --secondary: #e6e9ec;
-  --secondary-foreground: #00203f;
-  --muted: #073c6b;
-  --muted-foreground: #a9c0d3;
-  --accent: #36ecde;
-  --accent-foreground: #00203f;
-  --destructive: #e6e9ec;
-  --border: #e6e9ec;
-  --shadow-brut: 8px 8px 0 var(--border);
-  --shadow-brut-sm: 4px 4px 0 var(--border);
+.light {
+  --ink: #111111;
+  --background: #f4f1e8;
+  --foreground: #111111;
+  --surface: #ffffff;
+  --surface-foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --primary: #c8e600;
+  --primary-foreground: #111111;
+  --secondary: #ece8dc;
+  --secondary-foreground: #111111;
+  --muted: #e6e2d6;
+  --muted-foreground: #666666;
+  --accent: #c8e600;
+  --accent-foreground: #111111;
+  --destructive: #c53a24;
+  --border: #d6d6d6;
+  --shadow-brut: 8px 8px 0 color-mix(in srgb, #111111 12%, transparent);
+  --shadow-brut-sm: 4px 4px 0 color-mix(in srgb, #111111 14%, transparent);
 }
 
 @layer base {
@@ -94,14 +94,17 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 18px;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.7;
     overflow-x: hidden;
   }
+
 
   h1,
   h2,
