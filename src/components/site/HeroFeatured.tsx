@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { formatPostDate, type Post } from "@/lib/posts";
+import zanjAsset from "@/assets/zanj-piano.jpg.asset.json";
 
 const clamp = (v: number, a: number, b: number) => (v < a ? a : v > b ? b : v);
 const smoothstep = (edge0: number, edge1: number, x: number) => {
@@ -167,6 +168,14 @@ export default function HeroFeatured({
 
         <div className="hero-featured__overlay">
           <div className="hero-featured__hero" ref={heroRef}>
+            <div className="hero-profile">
+              <img
+                src={zanjAsset.url}
+                alt="Zanj playing keys during a live set"
+                loading="eager"
+              />
+              <span>Zanj</span>
+            </div>
             <h1 className="hero-title">
               <span className="accent-word">HARMONIC</span>
               <span className="second-word">PROGRESS</span>

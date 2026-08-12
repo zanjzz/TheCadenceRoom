@@ -34,7 +34,7 @@ export default function ChordNoteCTA() {
             </ul>
           </div>
           <div className="flex flex-col gap-4 md:justify-end">
-            <div className="brut-border brut-shadow-sm hidden max-h-[320px] flex-1 overflow-hidden bg-background md:block">
+            <div className="chordnote-preview hidden max-h-[320px] flex-1 md:block">
               <img
                 src={previewAsset.url}
                 alt="ChordNote editor showing song details, transpose controls and lyrics input"
