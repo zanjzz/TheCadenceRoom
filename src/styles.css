@@ -318,21 +318,18 @@
   opacity: 0.7;
 }
 
-/* Small profile avatar in the hero top-right corner. */
-.hero-profile {
-  position: absolute;
-  top: 1.25rem;
-  right: 1rem;
-  z-index: 10;
+/* Profile avatar inside the About card, next to the heading. */
+.about-pfp {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
+  flex-shrink: 0;
 }
 
-.hero-profile img {
-  width: 56px;
-  height: 56px;
+.about-pfp img {
+  width: 64px;
+  height: 64px;
   object-fit: cover;
   object-position: top;
   border: 3px solid var(--border);
@@ -340,25 +337,21 @@
   background: var(--background);
 }
 
-.hero-profile span {
-  font-size: 0.62rem;
+.about-pfp span {
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--foreground);
 }
 
 @media (min-width: 768px) {
-  .hero-profile {
-    top: 1.75rem;
-    right: 2rem;
-  }
-
-  .hero-profile img {
-    width: 72px;
-    height: 72px;
+  .about-pfp img {
+    width: 80px;
+    height: 80px;
   }
 }
+
 
 /* ---------- Option wheel (Topics) ---------- */
 
@@ -449,20 +442,6 @@
   box-shadow: var(--shadow-brut-sm);
 }
 
-.chordnote-preview::before {
-  content: "Preview";
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  background: var(--accent);
-  color: var(--accent-foreground);
-  padding: 0.25rem 0.7rem;
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
 
 .chordnote-preview::after {
   content: "";
