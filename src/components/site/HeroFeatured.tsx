@@ -59,14 +59,19 @@ export default function HeroFeatured({
     if (!frame) return;
     const c = cfg.current;
     const splitPoint = c.growDistance / (c.growDistance + c.holdDistance);
+    // Narrow screens start with a larger frame so hero copy stays inside it.
+    const isNarrow = typeof window !== "undefined" && window.innerWidth < 768;
+    const startWidthPct = isNarrow ? Math.max(c.startWidth, 92) : c.startWidth;
+    const startHeightPct = isNarrow ? Math.max(c.startHeight, 80) : c.startHeight;
 
     const growP = smoothstep(0, 1, clamp(p / splitPoint, 0, 1));
-    const w = c.startWidth + (100 - c.startWidth) * growP;
-    const h = c.startHeight + (100 - c.startHeight) * growP;
+    const w = startWidthPct + (100 - startWidthPct) * growP;
+    const h = startHeightPct + (100 - startHeightPct) * growP;
     const ix = Math.max(0, (100 - w) / 2);
     const iy = Math.max(0, (100 - h) / 2);
     const r = c.startRadius + (c.endRadius - c.startRadius) * growP;
     frame.style.clipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}% round ${r}px)`;
+
 
     const fadeP = smoothstep(0, 1, clamp((p - splitPoint) / (1 - splitPoint), 0, 1));
     if (heroRef.current) {
@@ -200,7 +205,9 @@ export default function HeroFeatured({
                   <div className="mb-3 text-xs font-bold uppercase tracking-widest">
                     <time dateTime={post.date}>{formatPostDate(post.date)}</time>
                     <span className="ml-3">{post.category}</span>
+                    <span className="ml-3">{post.readingMinutes} min read</span>
                   </div>
+
                   <p className="max-w-lg text-base font-medium">{post.excerpt}</p>
                   <Link
                     to="/blog/$slug"
