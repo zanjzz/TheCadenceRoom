@@ -333,6 +333,8 @@
   object-fit: cover;
   object-position: top;
   border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-left-color: var(--accent);
   box-shadow: var(--shadow-brut-sm);
   background: var(--background);
 }
