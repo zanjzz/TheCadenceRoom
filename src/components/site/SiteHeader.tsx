@@ -19,7 +19,7 @@ export default function SiteHeader() {
       <div className="section-shell pointer-events-auto flex items-center justify-between gap-3">
         <Link
           to="/"
-          className="nav-pill font-[family-name:var(--font-display)] text-sm uppercase tracking-tight text-foreground md:text-base"
+          className="nav-pill nav-pill--tight font-[family-name:var(--font-display)] text-sm uppercase tracking-tight text-foreground md:text-base"
         >
           Harmonic<span className="text-accent">.</span>Progress
         </Link>
