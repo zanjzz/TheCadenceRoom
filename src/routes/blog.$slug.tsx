@@ -45,7 +45,7 @@ function BlogPost() {
       <h1 className="mt-4 text-3xl leading-tight md:text-5xl">{post.title}</h1>
       <div className="mt-3 text-xs font-bold uppercase tracking-widest">
         <time dateTime={post.date}>{formatPostDate(post.date)}</time>
-        {post.tags.length ? <span className="ml-3">{post.tags.map((t) => `#${t}`).join(" ")}</span> : null}
+        {post.tags.length ? <span className="ml-3">{post.tags.map((tag: string) => `#${tag}`).join(" ")}</span> : null}
       </div>
 
       <img
