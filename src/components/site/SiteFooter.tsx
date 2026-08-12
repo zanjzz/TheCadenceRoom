@@ -15,12 +15,12 @@ const socials = [
 export default function SiteFooter() {
   return (
     <footer className="bg-primary text-primary-foreground border-t-[3px] border-border">
-      <div className="section-shell grid gap-8 py-12 md:grid-cols-3">
+      <div className="section-shell grid gap-8 py-12 text-center md:grid-cols-3 md:text-left">
         <div>
           <Link to="/" className="font-[family-name:var(--font-display)] text-xl uppercase">
             Harmonic.Progress
           </Link>
-          <p className="mt-3 max-w-xs text-sm font-medium opacity-80">
+          <p className="mx-auto mt-3 max-w-xs text-sm font-medium opacity-80 md:mx-0">
             Chord progressions, voice leading, and practical harmony for working musicians. A
             personal blog by Zanj.
           </p>
@@ -41,7 +41,7 @@ export default function SiteFooter() {
 
         <div>
           <h2 className="text-sm uppercase tracking-widest">Find me</h2>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-3 flex flex-wrap justify-center gap-2 md:justify-start">
             {socials.map((social) => (
               <li key={social.label}>
                 <a
@@ -62,7 +62,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="border-t-[3px] border-border">
-        <div className="section-shell py-4 text-xs font-bold uppercase tracking-widest">
+        <div className="section-shell py-4 text-center text-xs font-bold uppercase tracking-widest md:text-left">
           © 2026 Harmonic Progress
         </div>
       </div>

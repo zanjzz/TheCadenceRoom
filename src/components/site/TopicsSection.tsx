@@ -22,15 +22,18 @@ export default function TopicsSection() {
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
-          <div className="relative h-[320px] md:h-[420px]">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div className="relative h-[300px] lg:h-[440px]">
             <OptionWheel
               items={topics.map((topic) => topic.name)}
               defaultSelected={0}
               onChange={(index) => setActiveIndex(index)}
-              fontSize={2}
-              spacing={1.6}
+              fontSize={1.7}
+              spacing={1.35}
               inset={4}
+              loop
+              fade={0.22}
+              minOpacity={0.14}
               className="uppercase"
             />
           </div>
@@ -38,7 +41,7 @@ export default function TopicsSection() {
           <Link
             to="/topics/$topicSlug"
             params={{ topicSlug: active.slug }}
-            className="brut-border brut-shadow brut-press bg-card text-card-foreground group block overflow-hidden"
+            className="brut-border brut-shadow brut-press bg-card text-card-foreground group flex h-[360px] flex-col overflow-hidden lg:h-[440px]"
           >
             <img
               key={active.image}
@@ -47,12 +50,12 @@ export default function TopicsSection() {
               width={1200}
               height={900}
               loading="lazy"
-              className="animate-fade-in aspect-[4/3] h-auto w-full object-cover"
+              className="animate-fade-in min-h-0 w-full flex-1 object-cover"
             />
-            <div className="border-t-[3px] border-border p-4">
-              <h3 className="text-xl uppercase">{active.name}</h3>
+            <div className="shrink-0 border-t-[3px] border-border p-4">
+              <h3 className="text-lg uppercase md:text-xl">{active.name}</h3>
               <p className="text-muted-foreground mt-1 text-sm font-medium">{active.blurb}</p>
-              <span className="bg-accent text-accent-foreground brut-border mt-4 inline-flex items-center gap-2 px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
+              <span className="bg-accent text-accent-foreground brut-border mt-3 inline-flex items-center gap-2 px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
                 Explore {active.name}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </span>
