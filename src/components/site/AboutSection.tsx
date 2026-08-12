@@ -23,7 +23,6 @@ export default function AboutSection() {
                   alt="Zanj playing keys during a live set"
                   loading="lazy"
                 />
-                <span>Zanj</span>
               </div>
             </div>
             <p className="text-base font-medium">
