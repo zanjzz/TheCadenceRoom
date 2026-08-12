@@ -1,13 +1,18 @@
+import { slugifyTopic } from "./topics";
+
 export type Post = {
   slug: string;
   title: string;
   date: string;
   category: string;
+  categorySlug: string;
   excerpt: string;
   image: string;
   tags: string[];
   body: string;
+  readingMinutes: number;
 };
+
 
 const postFiles = import.meta.glob("../../content/posts/*.md", {
   eager: true,
