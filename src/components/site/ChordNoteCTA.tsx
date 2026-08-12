@@ -1,3 +1,5 @@
+import previewAsset from "@/assets/chordnote-preview.jpg.asset.json";
+
 const features = [
   "Lyrics with chords above them",
   "Smart chord input",
@@ -14,7 +16,7 @@ export default function ChordNoteCTA() {
         <div className="border-b-[3px] border-border bg-accent text-accent-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
           Also made by me — ChordNote
         </div>
-        <div className="grid gap-6 p-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:p-10">
+        <div className="grid gap-6 p-5 md:grid-cols-[minmax(0,1fr)_minmax(0,280px)] md:items-stretch md:gap-10 md:p-10">
           <div className="min-w-0">
             <h2 className="text-2xl md:text-5xl">
               Create, customize and share chord sheets in minutes
@@ -31,14 +33,24 @@ export default function ChordNoteCTA() {
               ))}
             </ul>
           </div>
-          <a
-            href="https://chordnote.me"
-            target="_blank"
-            rel="noreferrer"
-            className="brut-border brut-shadow brut-press bg-accent text-accent-foreground inline-block px-7 py-4 text-center text-sm font-bold uppercase tracking-widest"
-          >
-            Open ChordNote
-          </a>
+          <div className="flex flex-col gap-4 md:justify-end">
+            <div className="brut-border brut-shadow-sm hidden max-h-[320px] flex-1 overflow-hidden bg-background md:block">
+              <img
+                src={previewAsset.url}
+                alt="ChordNote editor showing song details, transpose controls and lyrics input"
+                loading="lazy"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+            <a
+              href="https://chordnote.me"
+              target="_blank"
+              rel="noreferrer"
+              className="brut-border brut-shadow brut-press bg-accent text-accent-foreground block px-7 py-4 text-center text-sm font-bold uppercase tracking-widest"
+            >
+              Open ChordNote
+            </a>
+          </div>
         </div>
       </div>
     </section>
