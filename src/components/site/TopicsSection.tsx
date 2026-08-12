@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Hash } from "lucide-react";
 import OptionWheel from "./OptionWheel";
 import { topics } from "@/lib/topics";
 
 export default function TopicsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = topics[activeIndex] ?? topics[0]!;
+  const count = topics.length;
 
   return (
     <section
@@ -23,21 +24,34 @@ export default function TopicsSection() {
         </div>
 
         <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div className="brut-border bg-card/40 relative h-[360px] overflow-hidden lg:h-[440px]">
+          <div className="topic-wheel-shell relative h-[360px] overflow-hidden lg:h-[440px]">
+            {/* Decorative corner brackets */}
+            <span className="pointer-events-none absolute top-3 left-3 h-6 w-6 border-l-[3px] border-t-[3px] border-accent" aria-hidden />
+            <span className="pointer-events-none absolute bottom-3 right-3 h-6 w-6 border-r-[3px] border-b-[3px] border-accent" aria-hidden />
+
+            {/* Active index marker */}
+            <div className="pointer-events-none absolute top-3 right-3 z-10 flex items-center gap-1.5 text-xs font-bold tracking-widest text-accent-foreground">
+              <Hash className="h-3.5 w-3.5 text-accent" />
+              <span className="text-accent">{String(activeIndex + 1).padStart(2, "0")}</span>
+              <span className="opacity-40">/ {String(count).padStart(2, "0")}</span>
+            </div>
+
+            {/* Vertical accent rail */}
+            <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-1.5 bg-accent" aria-hidden />
+
             <OptionWheel
               items={topics.map((topic) => topic.name)}
               defaultSelected={0}
               onChange={(index) => setActiveIndex(index)}
               fontSize={1.7}
               spacing={1.35}
-              inset={4}
+              inset={28}
               loop
               fade={0.22}
               minOpacity={0.14}
               className="uppercase"
             />
           </div>
-
 
           <Link
             to="/topics/$topicSlug"
