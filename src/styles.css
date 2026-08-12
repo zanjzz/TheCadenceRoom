@@ -345,7 +345,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-foreground);
+  color: var(--foreground);
 }
 
 @media (min-width: 768px) {
