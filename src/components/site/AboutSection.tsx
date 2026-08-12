@@ -1,8 +1,7 @@
-const socials = [
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "X", href: "https://x.com" },
-  { label: "Email", href: "mailto:hello@harmonicprogress.com" },
+const links = [
+  { label: "Email", value: "zanj269@gmail.com", href: "mailto:zanj269@gmail.com" },
+  { label: "Instagram", value: "@zanj629", href: "https://www.instagram.com/zanj629/" },
+  { label: "Facebook", value: "Zanj", href: "https://www.facebook.com/people/Zanj/61590616156220/" },
 ];
 
 export default function AboutSection() {
@@ -16,9 +15,9 @@ export default function AboutSection() {
           <div className="space-y-4 p-5 md:p-7">
             <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
             <p className="text-base font-medium">
-              Harmonic Progress is built for church musicians, songwriters, and producers who want
-              to understand chord progressions at a deeper level — not as trivia, but as something
-              you can hear and use in the middle of a song.
+              Hey — I'm Zanj. Harmonic Progress is my personal blog, written for church musicians,
+              songwriters, and producers who want to understand chord progressions at a deeper
+              level — not as trivia, but as something you can hear and use in the middle of a song.
             </p>
             <p className="text-muted-foreground text-base font-medium">
               Every article starts from a real playing problem: a turnaround that will not resolve,
@@ -28,31 +27,32 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div id="contact" className="brut-border brut-shadow bg-secondary text-secondary-foreground scroll-mt-24 overflow-hidden">
+        <div
+          id="contact"
+          className="brut-border brut-shadow bg-secondary text-secondary-foreground scroll-mt-24 overflow-hidden"
+        >
           <div className="border-b-[3px] border-border bg-card text-card-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
             Get in touch
           </div>
           <div className="p-5 md:p-7">
             <p className="text-base font-medium">
-              Questions, corrections, or a topic request? Reach out — replies come from a human.
+              Questions, corrections, or a topic request? Reach me directly on any of these — it's
+              just me on the other end.
             </p>
-            <a
-              href="mailto:hello@harmonicprogress.com"
-              className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground mt-4 inline-block px-4 py-2 text-sm font-bold"
-            >
-              hello@harmonicprogress.com
-            </a>
 
-            <ul className="mt-6 grid grid-cols-2 gap-3">
-              {socials.map((social) => (
-                <li key={social.label}>
+            <ul className="mt-5 space-y-3">
+              {links.map((link) => (
+                <li key={link.label}>
                   <a
-                    href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground block px-3 py-2 text-center text-[0.7rem] font-bold uppercase tracking-widest"
+                    className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground flex items-center justify-between gap-3 px-4 py-2"
                   >
-                    {social.label}
+                    <span className="text-[0.7rem] font-bold uppercase tracking-widest">
+                      {link.label}
+                    </span>
+                    <span className="truncate text-sm font-bold">{link.value}</span>
                   </a>
                 </li>
               ))}

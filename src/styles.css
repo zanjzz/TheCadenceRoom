@@ -201,9 +201,18 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8% 10%;
+  padding: 4.5rem 2.25rem;
   color: var(--accent-foreground);
   will-change: opacity;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .hero-featured__hero,
+  .hero-featured__article {
+    padding: 8% 10%;
+    overflow-y: visible;
+  }
 }
 
 .hero-featured__hero {
@@ -213,6 +222,7 @@
   opacity: 0;
   text-align: left;
 }
+
 
 .hero-featured__hero .hero-title {
   display: flex;
@@ -423,4 +433,44 @@
     color: var(--accent);
     border-color: var(--accent);
   }
+
+  /* Mobile sheet: full-contrast links, no muted state. */
+  .nav-sheet {
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    border: 3px solid var(--border);
+  }
+
+  .nav-sheet a {
+    color: var(--foreground);
+    font-size: 0.85rem;
+    padding: 0.6rem 0.9rem;
+    border: 3px solid var(--border);
+    background: var(--card);
+  }
+
+  .nav-sheet a:hover,
+  .nav-sheet a:focus-visible {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  /* Footer sits on --primary (lime), so hovers must darken, not lighten. */
+  .footer-link {
+    color: var(--primary-foreground);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: color-mix(in srgb, var(--primary-foreground) 40%, transparent);
+    transition:
+      text-decoration-color 0.2s,
+      opacity 0.2s;
+  }
+
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: var(--primary-foreground);
+    opacity: 1;
+    text-decoration-color: var(--primary-foreground);
+  }
 }
+

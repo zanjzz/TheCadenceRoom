@@ -37,7 +37,11 @@ export default function ArticleCard({ post }: { post: Post }) {
             {post.title}
           </Link>
         </h3>
+        <span className="text-muted-foreground text-[0.7rem] font-bold uppercase tracking-widest">
+          {post.readingMinutes} min read
+        </span>
         <p className="text-muted-foreground flex-1 text-sm font-medium">{post.excerpt}</p>
+
         <Link
           to="/blog/$slug"
           params={{ slug: post.slug }}

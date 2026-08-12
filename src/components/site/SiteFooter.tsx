@@ -8,9 +8,8 @@ const sections = [
 ];
 
 const socials = [
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "X", href: "https://x.com" },
+  { label: "Instagram", href: "https://www.instagram.com/zanj629/" },
+  { label: "Facebook", href: "https://www.facebook.com/people/Zanj/61590616156220/" },
 ];
 
 export default function SiteFooter() {
@@ -19,10 +18,11 @@ export default function SiteFooter() {
       <div className="section-shell grid gap-8 py-12 md:grid-cols-3">
         <div>
           <Link to="/" className="font-[family-name:var(--font-display)] text-xl uppercase">
-            Harmonic<span className="text-accent">.</span>Progress
+            Harmonic.Progress
           </Link>
           <p className="mt-3 max-w-xs text-sm font-medium opacity-80">
-            Chord progressions, voice leading, and practical harmony for working musicians.
+            Chord progressions, voice leading, and practical harmony for working musicians. A
+            personal blog by Zanj.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export default function SiteFooter() {
           <ul className="mt-3 space-y-2">
             {sections.map((section) => (
               <li key={section.label}>
-                <a href={section.href} className="text-sm font-medium hover:text-accent">
+                <a href={section.href} className="footer-link text-sm font-medium">
                   {section.label}
                 </a>
               </li>
@@ -40,7 +40,7 @@ export default function SiteFooter() {
         </nav>
 
         <div>
-          <h2 className="text-sm uppercase tracking-widest">Elsewhere</h2>
+          <h2 className="text-sm uppercase tracking-widest">Find me</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
             {socials.map((social) => (
               <li key={social.label}>
@@ -48,18 +48,15 @@ export default function SiteFooter() {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="brut-border brut-shadow-sm brut-press bg-accent text-accent-foreground block px-3 py-2 text-[0.7rem] font-bold uppercase tracking-widest"
+                  className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground block px-3 py-2 text-[0.7rem] font-bold uppercase tracking-widest"
                 >
                   {social.label}
                 </a>
               </li>
             ))}
           </ul>
-          <a
-            href="mailto:hello@harmonicprogress.com"
-            className="mt-4 inline-block text-sm font-medium underline underline-offset-4"
-          >
-            hello@harmonicprogress.com
+          <a href="mailto:zanj269@gmail.com" className="footer-link mt-4 inline-block text-sm font-medium">
+            zanj269@gmail.com
           </a>
         </div>
       </div>

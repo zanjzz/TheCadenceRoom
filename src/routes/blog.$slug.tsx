@@ -41,12 +41,20 @@ function BlogPost() {
         ← All articles
       </Link>
 
-      <span className="eyebrow mt-6 block w-fit">{post.category}</span>
+      <Link
+        to="/topics/$topicSlug"
+        params={{ topicSlug: post.categorySlug }}
+        className="eyebrow brut-press mt-6 block w-fit"
+      >
+        {post.category}
+      </Link>
       <h1 className="mt-4 text-3xl leading-tight md:text-5xl">{post.title}</h1>
       <div className="mt-3 text-xs font-bold uppercase tracking-widest">
         <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+        <span className="ml-3">{post.readingMinutes} min read</span>
         {post.tags.length ? <span className="ml-3">{post.tags.map((tag: string) => `#${tag}`).join(" ")}</span> : null}
       </div>
+
 
       <img
         src={post.image}
