@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import ArticleCard from "@/components/site/ArticleCard";
-import { getPostsByTopic } from "@/lib/posts";
+import { getPostsByTopic, type Post } from "@/lib/posts";
 import { getTopicBySlug } from "@/lib/topics";
 
 export const Route = createFileRoute("/topics/$topicSlug")({
@@ -54,7 +54,7 @@ function TopicPage() {
 
       {posts.length ? (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
+          {posts.map((post: Post) => (
             <ArticleCard key={post.slug} post={post} />
           ))}
         </div>
