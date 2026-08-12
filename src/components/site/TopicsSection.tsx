@@ -22,8 +22,8 @@ export default function TopicsSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div className="relative h-[300px] lg:h-[440px]">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div className="brut-border bg-card/40 relative h-[360px] overflow-hidden lg:h-[440px]">
             <OptionWheel
               items={topics.map((topic) => topic.name)}
               defaultSelected={0}
@@ -37,6 +37,7 @@ export default function TopicsSection() {
               className="uppercase"
             />
           </div>
+
 
           <Link
             to="/topics/$topicSlug"
