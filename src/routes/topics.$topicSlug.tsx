@@ -1,9 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { z } from "zod";
 import ArticleCard from "@/components/site/ArticleCard";
 import { getPostsByTopic, type Post } from "@/lib/posts";
 import { getTopicBySlug } from "@/lib/topics";
 
+const PER_PAGE = 9;
+
 export const Route = createFileRoute("/topics/$topicSlug")({
+  validateSearch: z.object({ page: z.coerce.number().int().min(1).catch(1) }),
   loader: ({ params }) => {
     const topic = getTopicBySlug(params.topicSlug);
     if (!topic) throw notFound();
@@ -36,6 +40,10 @@ export const Route = createFileRoute("/topics/$topicSlug")({
 
 function TopicPage() {
   const { topic, posts } = Route.useLoaderData();
+  const { page } = Route.useSearch();
+  const totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+  const current = Math.min(page, totalPages);
+  const visible = posts.slice((current - 1) * PER_PAGE, current * PER_PAGE);
 
   return (
     <div className="section-shell pb-16 pt-28 md:pb-24 md:pt-36">
@@ -54,7 +62,7 @@ function TopicPage() {
 
       {posts.length ? (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post: Post) => (
+          {visible.map((post: Post) => (
             <ArticleCard key={post.slug} post={post} />
           ))}
         </div>
@@ -62,6 +70,32 @@ function TopicPage() {
         <p className="brut-border bg-card text-card-foreground mt-10 p-6 text-sm font-bold uppercase tracking-widest">
           No articles here yet — check back soon.
         </p>
+      )}
+
+      {totalPages > 1 && (
+        <nav className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            to="/topics/$topicSlug"
+            params={{ topicSlug: topic.slug }}
+            search={{ page: Math.max(1, current - 1) }}
+            disabled={current === 1}
+            className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest aria-disabled:pointer-events-none aria-disabled:opacity-40"
+          >
+            ← Prev
+          </Link>
+          <span className="text-muted-foreground text-[0.7rem] font-bold uppercase tracking-widest">
+            Page {current} / {totalPages}
+          </span>
+          <Link
+            to="/topics/$topicSlug"
+            params={{ topicSlug: topic.slug }}
+            search={{ page: Math.min(totalPages, current + 1) }}
+            disabled={current === totalPages}
+            className="brut-border brut-shadow-sm brut-press bg-card text-card-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest aria-disabled:pointer-events-none aria-disabled:opacity-40"
+          >
+            Next →
+          </Link>
+        </nav>
       )}
     </div>
   );
