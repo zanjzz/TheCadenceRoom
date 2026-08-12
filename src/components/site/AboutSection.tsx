@@ -1,3 +1,5 @@
+import zanjAsset from "@/assets/zanj-piano.jpg.asset.json";
+
 const links = [
   { label: "Email", value: "zanj269@gmail.com", href: "mailto:zanj269@gmail.com" },
   { label: "Instagram", value: "@zanj629", href: "https://www.instagram.com/zanj629/" },
@@ -13,7 +15,17 @@ export default function AboutSection() {
             About Harmonic Progress
           </div>
           <div className="space-y-4 p-5 md:p-7">
-            <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
+            <div className="flex items-start justify-between gap-4">
+              <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
+              <div className="about-pfp">
+                <img
+                  src={zanjAsset.url}
+                  alt="Zanj playing keys during a live set"
+                  loading="lazy"
+                />
+                <span>Zanj</span>
+              </div>
+            </div>
             <p className="text-base font-medium">
               Hey — I'm Zanj. Harmonic Progress is my personal blog, made for fellow musicians,
               songwriters, and producers who want to understand music on a deeper level. I'm
