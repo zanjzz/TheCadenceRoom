@@ -1,17 +1,8 @@
 # Harmonic Progress
 
-Harmonic Progress is a personal blog about chord progressions, voice leading, and practical harmony — written for church musicians, songwriters, and producers who want to understand harmony as something they can hear and use, not just memorize.
+Harmonic Progress is a personal blog by Zanj about learning and making music. It explores music theory, musicianship, songwriting, production, and the ideas and discoveries that come from actually playing and creating music.
 
-The site publishes short, practical articles that start from real playing problems: a turnaround that won't resolve, a bridge that goes nowhere, a keyboard part burying the vocal.
-
-## Features
-
-- **File-based articles** — posts are Markdown files in `content/posts/`; adding a file publishes an article.
-- **Automatic metadata** — publication date sorting, category tagging, and calculated "X min read" times.
-- **Topic pages** — every category gets its own page at `/topics/:topicSlug` with a filtered article list.
-- **Interactive topics browser** — a scrollable category wheel paired with a linked topic cover image.
-- **Light / dark themes** — a neo-brutalist palette that adapts across both modes.
-- **Responsive floating nav** — glass pill navigation that collapses to a mobile sheet.
+Articles start from real questions, playing problems, and things I'm learning along the way — with a focus on understanding music as something you can hear, apply, and experience, not just memorize.
 
 ## Tech stack
 

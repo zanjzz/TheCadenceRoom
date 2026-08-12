@@ -21,8 +21,7 @@ export default function SiteFooter() {
             Harmonic.Progress
           </Link>
           <p className="mx-auto mt-3 max-w-xs text-sm font-medium opacity-80 md:mx-0">
-            Chord progressions, voice leading, and practical harmony for working musicians. A
-            personal blog by Zanj.
+            Learning music. Making music. Making progress.
           </p>
         </div>
 
@@ -55,7 +54,10 @@ export default function SiteFooter() {
               </li>
             ))}
           </ul>
-          <a href="mailto:zanj269@gmail.com" className="footer-link mt-4 inline-block text-sm font-medium">
+          <a
+            href="mailto:zanj269@gmail.com"
+            className="footer-link mt-4 inline-block text-sm font-medium"
+          >
             zanj269@gmail.com
           </a>
         </div>
