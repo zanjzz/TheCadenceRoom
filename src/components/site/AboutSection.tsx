@@ -1,5 +1,3 @@
-import zanjAsset from "@/assets/zanj-piano.jpg.asset.json";
-
 const links = [
   { label: "Email", value: "zanj269@gmail.com", href: "mailto:zanj269@gmail.com" },
   { label: "Instagram", value: "@zanj629", href: "https://www.instagram.com/zanj629/" },
@@ -16,20 +14,12 @@ export default function AboutSection() {
           </div>
           <div className="space-y-4 p-5 md:p-7">
             <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-              <img
-                src={zanjAsset.url}
-                alt="Zanj playing keys during a live set"
-                loading="lazy"
-                className="brut-border brut-shadow-sm h-28 w-28 shrink-0 object-cover object-top sm:h-32 sm:w-32"
-              />
-              <p className="min-w-0 text-base font-medium">
-                Hey — I'm Zanj. Harmonic Progress is my personal blog, made for fellow musicians,
-                songwriters, and producers who want to understand music on a deeper level. I'm
-                learning, experimenting, and sharing what I discover along the way — so learn with
-                me, and let's make some harmonic progress.
-              </p>
-            </div>
+            <p className="text-base font-medium">
+              Hey — I'm Zanj. Harmonic Progress is my personal blog, made for fellow musicians,
+              songwriters, and producers who want to understand music on a deeper level. I'm
+              learning, experimenting, and sharing what I discover along the way — so learn with
+              me, and let's make some harmonic progress.
+            </p>
             <p className="text-muted-foreground text-base font-medium">
               Every article starts from a real playing problem: a turnaround that will not resolve,
               a bridge that goes nowhere, a keyboard part burying the vocal. No filler, no
