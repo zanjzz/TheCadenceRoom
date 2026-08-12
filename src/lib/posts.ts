@@ -21,14 +21,15 @@ const postFiles = import.meta.glob("../../content/posts/*.md", {
  */
 function parseFrontmatter(raw: string) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(raw);
-  if (!match) return { data: {} as Record<string, unknown>, body: raw };
+  const block = match?.[1];
+  if (!match || !block) return { data: {} as Record<string, unknown>, body: raw };
 
   const data: Record<string, unknown> = {};
-  for (const line of match[1].split(/\r?\n/)) {
+  for (const line of block.split(/\r?\n/)) {
     const pair = /^([A-Za-z0-9_-]+):\s*(.*)$/.exec(line.trim());
-    if (!pair) continue;
-    const [, key, rawValue] = pair;
-    const value = rawValue.trim();
+    const key = pair?.[1];
+    if (!pair || !key) continue;
+    const value = (pair[2] ?? "").trim();
     if (value.startsWith("[") && value.endsWith("]")) {
       data[key] = value
         .slice(1, -1)
@@ -49,12 +50,12 @@ function toPost(filepath: string, raw: string): Post {
 
   return {
     slug,
-    title: (data.title as string) ?? slug,
-    date: (data.date as string) ?? "",
-    category: (data.category as string) ?? "Uncategorised",
-    excerpt: (data.excerpt as string) ?? "",
-    image: (data.image as string) ?? "/images/harmony.jpg",
-    tags: (data.tags as string[]) ?? [],
+    title: (data["title"] as string) ?? slug,
+    date: (data["date"] as string) ?? "",
+    category: (data["category"] as string) ?? "Uncategorised",
+    excerpt: (data["excerpt"] as string) ?? "",
+    image: (data["image"] as string) ?? "/images/harmony.jpg",
+    tags: (data["tags"] as string[]) ?? [],
     body,
   };
 }
