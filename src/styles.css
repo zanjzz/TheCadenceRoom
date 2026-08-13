@@ -245,10 +245,18 @@
 @media (min-width: 768px) {
   .hero-featured__hero,
   .hero-featured__article {
-    padding: 8% 13%;
+    padding: 8% 16%;
     overflow-y: visible;
   }
 }
+
+@media (min-width: 1280px) {
+  .hero-featured__hero,
+  .hero-featured__article {
+    padding: 8% 19%;
+  }
+}
+
 
 .hero-featured__hero {
   opacity: 1;
@@ -738,3 +746,112 @@
   }
 }
 
+
+/* ---------- Page entrance animations ---------- */
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes enter-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes enter-down {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enter-up,
+.enter-scale,
+.enter-down {
+  opacity: 0;
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 0.9, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.enter-up {
+  animation-name: enter-up;
+}
+.enter-scale {
+  animation-name: enter-scale;
+}
+.enter-down {
+  animation-name: enter-down;
+  animation-duration: 0.45s;
+}
+
+.enter-d1 {
+  animation-delay: 0.06s;
+}
+.enter-d2 {
+  animation-delay: 0.12s;
+}
+.enter-d3 {
+  animation-delay: 0.18s;
+}
+.enter-d4 {
+  animation-delay: 0.24s;
+}
+.enter-d5 {
+  animation-delay: 0.3s;
+}
+.enter-d6 {
+  animation-delay: 0.36s;
+}
+
+/* Staggered children for card/list groups. */
+.enter-stagger > * {
+  opacity: 0;
+  animation: enter-scale 0.55s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+}
+.enter-stagger > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.enter-stagger > *:nth-child(2) {
+  animation-delay: 0.11s;
+}
+.enter-stagger > *:nth-child(3) {
+  animation-delay: 0.17s;
+}
+.enter-stagger > *:nth-child(4) {
+  animation-delay: 0.23s;
+}
+.enter-stagger > *:nth-child(5) {
+  animation-delay: 0.29s;
+}
+.enter-stagger > *:nth-child(6) {
+  animation-delay: 0.35s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-up,
+  .enter-scale,
+  .enter-down,
+  .enter-stagger > * {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

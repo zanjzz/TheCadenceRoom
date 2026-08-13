@@ -15,7 +15,7 @@ export default function TopicsSection() {
       className="bg-surface text-surface-foreground scroll-mt-24 border-y-[3px] border-border py-16 md:py-24"
     >
       <div className="section-shell">
-        <div className="mb-8">
+        <div className="enter-up enter-d1 mb-8">
           <span className="eyebrow">Topics</span>
           <h2 className="mt-3 text-3xl md:text-5xl">Pick your lane</h2>
           <p className="text-muted-foreground mt-3 max-w-md text-sm font-medium">
@@ -24,7 +24,7 @@ export default function TopicsSection() {
         </div>
 
         <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div className="topic-wheel-shell relative h-[360px] overflow-hidden lg:h-[440px]">
+          <div className="topic-wheel-shell enter-up enter-d2 relative h-[360px] overflow-hidden lg:h-[440px]">
             {/* Decorative corner brackets */}
             <span className="pointer-events-none absolute top-3 left-3 h-6 w-6 border-l-[3px] border-t-[3px] border-accent" aria-hidden />
             <span className="pointer-events-none absolute bottom-3 right-3 h-6 w-6 border-r-[3px] border-b-[3px] border-accent" aria-hidden />
@@ -56,7 +56,7 @@ export default function TopicsSection() {
           <Link
             to="/topics/$topicSlug"
             params={{ topicSlug: active.slug }}
-            className="brut-border brut-shadow brut-press bg-card text-card-foreground group flex h-[360px] flex-col overflow-hidden lg:h-[440px]"
+            className="brut-border brut-shadow brut-press bg-card text-card-foreground enter-scale enter-d3 group flex h-[360px] flex-col overflow-hidden lg:h-[440px]"
           >
             <img
               key={active.image}

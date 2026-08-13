@@ -12,7 +12,7 @@ const features = [
 export default function ChordNoteCTA() {
   return (
     <section className="section-shell py-16 md:py-24">
-      <div className="brut-border brut-shadow bg-primary text-primary-foreground overflow-hidden">
+      <div className="brut-border brut-shadow bg-primary text-primary-foreground enter-scale enter-d2 overflow-hidden">
         <div className="border-b-[3px] border-border bg-accent text-accent-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
           Also made by me — ChordNote
         </div>

@@ -24,7 +24,7 @@ export default function SiteHeader() {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4">
       <div className="flex justify-center">
-        <div className="nav-pill pointer-events-auto gap-3 md:gap-6">
+        <div className="nav-pill enter-down pointer-events-auto gap-3 md:gap-6">
           <Link
             to="/"
             onClick={scrollTop}

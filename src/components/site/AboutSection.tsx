@@ -10,7 +10,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="section-shell scroll-mt-24 py-16 md:py-24">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)]">
-        <div className="brut-border brut-shadow bg-card text-card-foreground overflow-hidden">
+        <div className="brut-border brut-shadow bg-card text-card-foreground enter-up enter-d1 overflow-hidden">
           <div className="bg-accent text-accent-foreground border-b-[3px] border-border px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
             About The Cadence Room
           </div>
@@ -41,8 +41,9 @@ export default function AboutSection() {
 
         <div
           id="contact"
-          className="brut-border brut-shadow bg-secondary text-secondary-foreground scroll-mt-24 overflow-hidden"
+          className="brut-border brut-shadow bg-secondary text-secondary-foreground enter-up enter-d3 scroll-mt-24 overflow-hidden"
         >
+
           <div className="border-b-[3px] border-border bg-card text-card-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
             Get in touch
           </div>
