@@ -253,6 +253,10 @@ export default function HeroFeatured({
             </div>
           ) : null}
         </div>
+
+        <div ref={furnitureRef}>
+          <RoomFurniture />
+        </div>
       </div>
     </div>
   );
