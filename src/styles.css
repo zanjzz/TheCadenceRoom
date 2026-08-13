@@ -207,6 +207,7 @@
 .hero-featured__overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
 }
 
 .hero-featured__hero,
