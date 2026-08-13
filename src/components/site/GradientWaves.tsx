@@ -5,9 +5,9 @@ const hexToRgb = (hex: string): [number, number, number] => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return [1, 1, 1];
   return [
-    parseInt(result[1], 16) / 255,
-    parseInt(result[2], 16) / 255,
-    parseInt(result[3], 16) / 255,
+    parseInt(result[1]!, 16) / 255,
+    parseInt(result[2]!, 16) / 255,
+    parseInt(result[3]!, 16) / 255,
   ];
 };
 
@@ -124,6 +124,7 @@ void main() {
 }
 `;
 
+type Uniforms = Record<string, { value: unknown }>;
 type Ctx = { renderer: Renderer; program: Program; mesh: Mesh };
 const ctxMap = new WeakMap<HTMLElement, Ctx>();
 
@@ -228,6 +229,7 @@ export default function GradientWaves({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
+    const uni = program.uniforms as unknown as Uniforms;
     ctxMap.set(container, { renderer, program, mesh });
 
     const setSize = () => {
@@ -235,7 +237,7 @@ export default function GradientWaves({
       const w = Math.max(1, Math.floor(rect.width));
       const h = Math.max(1, Math.floor(rect.height));
       renderer.setSize(w, h);
-      const res = program.uniforms.iResolution.value as Float32Array;
+      const res = uni["iResolution"]!.value as Float32Array;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
       renderer.render({ scene: mesh });
@@ -266,13 +268,14 @@ export default function GradientWaves({
     const t0 = performance.now();
 
     const loop = (t: number) => {
-      program.uniforms.iTime.value = (t - t0) * 0.001;
-      const tx = enableMouseRef.current ? targetMouse[0] : 0.5;
-      const ty = enableMouseRef.current ? targetMouse[1] : 0.5;
-      currentMouse[0] += 0.05 * (tx - currentMouse[0]);
-      currentMouse[1] += 0.05 * (ty - currentMouse[1]);
-      (program.uniforms.uMouse.value as Float32Array)[0] = currentMouse[0];
-      (program.uniforms.uMouse.value as Float32Array)[1] = currentMouse[1];
+      uni["iTime"]!.value = (t - t0) * 0.001;
+      const tx = enableMouseRef.current ? targetMouse[0]! : 0.5;
+      const ty = enableMouseRef.current ? targetMouse[1]! : 0.5;
+      currentMouse[0] = currentMouse[0]! + 0.05 * (tx - currentMouse[0]!);
+      currentMouse[1] = currentMouse[1]! + 0.05 * (ty - currentMouse[1]!);
+      const mouse = uni["uMouse"]!.value as Float32Array;
+      mouse[0] = currentMouse[0]!;
+      mouse[1] = currentMouse[1]!;
       renderer.render({ scene: mesh });
       raf = requestAnimationFrame(loop);
     };
@@ -289,7 +292,7 @@ export default function GradientWaves({
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        isVisible = entry.isIntersecting;
+        isVisible = !!entry?.isIntersecting;
         isVisible ? tryStart() : tryStop();
       },
       { threshold: 0 },
@@ -325,25 +328,25 @@ export default function GradientWaves({
     if (!container) return;
     const ctx = ctxMap.get(container);
     if (!ctx) return;
-    const u = ctx.program.uniforms;
+    const u = ctx.program.uniforms as unknown as Uniforms;
     enableMouseRef.current = mouseInteraction;
-    u.uSpeed.value = speed;
-    u.uAmplitude.value = amplitude;
-    u.uWaveScale.value = waveScale;
-    u.uWaveRatio.value = waveRatio;
-    u.uSwell.value = swell;
-    u.uTurbulence.value = turbulence;
-    u.uTilt.value = tilt;
-    u.uZoom.value = zoom;
-    u.uHeight.value = height;
-    u.uFogDepth.value = fogDepth;
-    u.uSteps.value = detailToSteps(detail);
-    u.uBrightness.value = brightness;
-    u.uOpacity.value = opacity;
-    u.uGrain.value = grain ? 1.0 : 0.0;
-    u.uGrainIntensity.value = grainIntensity;
-    u.uParallax.value = parallaxStrength;
-    u.uEnableMouse.value = mouseInteraction;
+    u["uSpeed"]!.value = speed;
+    u["uAmplitude"]!.value = amplitude;
+    u["uWaveScale"]!.value = waveScale;
+    u["uWaveRatio"]!.value = waveRatio;
+    u["uSwell"]!.value = swell;
+    u["uTurbulence"]!.value = turbulence;
+    u["uTilt"]!.value = tilt;
+    u["uZoom"]!.value = zoom;
+    u["uHeight"]!.value = height;
+    u["uFogDepth"]!.value = fogDepth;
+    u["uSteps"]!.value = detailToSteps(detail);
+    u["uBrightness"]!.value = brightness;
+    u["uOpacity"]!.value = opacity;
+    u["uGrain"]!.value = grain ? 1.0 : 0.0;
+    u["uGrainIntensity"]!.value = grainIntensity;
+    u["uParallax"]!.value = parallaxStrength;
+    u["uEnableMouse"]!.value = mouseInteraction;
 
     const set = (target: Float32Array, hex: string) => {
       const rgb = hexToRgb(hex);
@@ -351,9 +354,9 @@ export default function GradientWaves({
       target[1] = rgb[1];
       target[2] = rgb[2];
     };
-    set(u.uHorizonColor.value as Float32Array, horizonColor);
-    set(u.uWaveColor.value as Float32Array, waveColor);
-    set(u.uCrestColor.value as Float32Array, crestColor);
+    set(u["uHorizonColor"]!.value as Float32Array, horizonColor);
+    set(u["uWaveColor"]!.value as Float32Array, waveColor);
+    set(u["uCrestColor"]!.value as Float32Array, crestColor);
   }, [
     horizonColor,
     waveColor,
