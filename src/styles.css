@@ -256,6 +256,7 @@
 .hero-featured__article {
   opacity: 0;
   text-align: left;
+  padding-bottom: clamp(6rem, 16vh, 11rem);
 }
 
 
