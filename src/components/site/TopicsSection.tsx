@@ -56,7 +56,7 @@ export default function TopicsSection() {
           <Link
             to="/topics/$topicSlug"
             params={{ topicSlug: active.slug }}
-            className="brut-border brut-shadow brut-press bg-card text-card-foreground group flex h-[360px] flex-col overflow-hidden lg:h-[440px]"
+            className="brut-border brut-shadow brut-press bg-card text-card-foreground enter-scale enter-d3 group flex h-[360px] flex-col overflow-hidden lg:h-[440px]"
           >
             <img
               key={active.image}
