@@ -179,9 +179,18 @@
   background: var(--background);
 }
 
+/* Animated WebGL waves sit on the hero body background, behind the zooming frame. */
+.hero-featured__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .hero-featured__frame {
   position: absolute;
   inset: 0;
+  z-index: 1;
   will-change: clip-path;
   /* Matches the JS start geometry so there is no full-bleed flash before hydration. */
   clip-path: inset(10% 4% 10% 4% round 0px);
@@ -191,7 +200,7 @@
 
 @media (min-width: 768px) {
   .hero-featured__frame {
-    clip-path: inset(19% 11% 19% 11% round 0px);
+    clip-path: inset(19% 19% 19% 19% round 0px);
   }
 }
 
