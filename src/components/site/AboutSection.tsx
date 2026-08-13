@@ -12,7 +12,7 @@ export default function AboutSection() {
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)]">
         <div className="brut-border brut-shadow bg-card text-card-foreground overflow-hidden">
           <div className="bg-accent text-accent-foreground border-b-[3px] border-border px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
-            About Harmonic Progress
+            About The Cadence Room
           </div>
           <div className="space-y-4 p-5 md:p-7">
             <div className="flex items-start justify-between gap-4">
@@ -26,10 +26,10 @@ export default function AboutSection() {
               </div>
             </div>
             <p className="text-base font-medium">
-              Hey — I'm Zanj. Harmonic Progress is my personal blog, made for fellow musicians,
+              Hey — I'm Zanj. The Cadence Room is my personal blog, made for fellow musicians,
               songwriters, and producers who want to understand music on a deeper level. I'm
               learning, experimenting, and sharing what I discover along the way — so learn with
-              me, and let's make some harmonic progress.
+              me, and let's make some musical progress.
             </p>
             <p className="text-muted-foreground text-base font-medium">
               Every article starts from a real playing problem: a turnaround that will not resolve,
