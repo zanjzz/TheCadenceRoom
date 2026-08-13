@@ -41,8 +41,9 @@ export default function AboutSection() {
 
         <div
           id="contact"
-          className="brut-border brut-shadow bg-secondary text-secondary-foreground scroll-mt-24 overflow-hidden"
+          className="brut-border brut-shadow bg-secondary text-secondary-foreground enter-up enter-d3 scroll-mt-24 overflow-hidden"
         >
+
           <div className="border-b-[3px] border-border bg-card text-card-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
             Get in touch
           </div>
