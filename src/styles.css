@@ -235,7 +235,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4.5rem 2.25rem;
+  padding: 4.5rem 3rem;
   color: var(--accent-foreground);
   will-change: opacity;
   overflow-y: auto;
@@ -245,7 +245,7 @@
 @media (min-width: 768px) {
   .hero-featured__hero,
   .hero-featured__article {
-    padding: 8% 10%;
+    padding: 8% 13%;
     overflow-y: visible;
   }
 }
@@ -256,6 +256,7 @@
 .hero-featured__article {
   opacity: 0;
   text-align: left;
+  padding-bottom: clamp(6rem, 16vh, 11rem);
 }
 
 
@@ -343,6 +344,109 @@
   text-transform: uppercase;
   color: var(--accent-foreground);
   opacity: 0.7;
+}
+
+/* ---------- Hero "room" furniture layer ---------- */
+
+.room-furniture {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 2.5rem);
+  padding-inline: clamp(1rem, 6vw, 4rem);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.room-furniture__item {
+  height: clamp(3.6rem, 9vw, 8rem);
+  width: auto;
+  stroke: var(--accent-foreground);
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  transform: translateY(120%);
+  opacity: 0;
+}
+
+.room-furniture .rf-fill-light {
+  fill: color-mix(in srgb, var(--accent) 45%, #ffffff);
+}
+.room-furniture .rf-fill-dark {
+  fill: var(--accent-foreground);
+}
+.room-furniture .rf-fill-accent {
+  fill: color-mix(in srgb, var(--accent) 70%, #ffffff);
+}
+
+.room-furniture--in .room-furniture__item {
+  animation: furniture-pop 0.62s cubic-bezier(0.22, 1.5, 0.4, 1) forwards;
+}
+
+.room-furniture--in .room-furniture__item:nth-child(1) {
+  animation-delay: 0.02s;
+}
+.room-furniture--in .room-furniture__item:nth-child(2) {
+  animation-delay: 0.09s;
+}
+.room-furniture--in .room-furniture__item:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.room-furniture--in .room-furniture__item:nth-child(4) {
+  animation-delay: 0.23s;
+}
+.room-furniture--in .room-furniture__item:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.room-furniture--in .room-furniture__item:nth-child(6) {
+  animation-delay: 0.37s;
+}
+
+@keyframes furniture-pop {
+  from {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(-6%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile keeps a lighter composition so the article copy stays clear. */
+.room-furniture__item--table,
+.room-furniture__item--speaker,
+.room-furniture__item--shelf {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .room-furniture__item--shelf,
+  .room-furniture__item--table {
+    display: block;
+  }
+}
+
+@media (min-width: 1100px) {
+  .room-furniture__item--speaker {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room-furniture--in .room-furniture__item {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 /* Profile avatar inside the About card, next to the heading. */

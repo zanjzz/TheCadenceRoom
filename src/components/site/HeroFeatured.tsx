@@ -2,6 +2,7 @@ import { lazy, useCallback, useEffect, useRef } from "react";
 import { ClientOnly, Link } from "@tanstack/react-router";
 
 const ShapeGrid = lazy(() => import("./ShapeGrid"));
+import RoomFurniture from "./RoomFurniture";
 import { formatPostDate, type Post } from "@/lib/posts";
 
 const clamp = (v: number, a: number, b: number) => (v < a ? a : v > b ? b : v);
@@ -36,6 +37,7 @@ export default function HeroFeatured({
   const frameRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
+  const furnitureRef = useRef<HTMLDivElement>(null);
 
   const cfg = useRef({
     startWidth,
@@ -81,6 +83,10 @@ export default function HeroFeatured({
     }
     if (featuredRef.current) {
       featuredRef.current.style.opacity = `${fadeP}`;
+    }
+    // Furniture pops in only after the article copy has essentially finished revealing.
+    if (furnitureRef.current) {
+      furnitureRef.current.classList.toggle("room-furniture--in", fadeP > 0.8);
     }
   }, []);
 
@@ -246,6 +252,10 @@ export default function HeroFeatured({
               </div>
             </div>
           ) : null}
+        </div>
+
+        <div ref={furnitureRef}>
+          <RoomFurniture />
         </div>
       </div>
     </div>
