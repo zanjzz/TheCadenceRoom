@@ -1,4 +1,4 @@
-import previewAsset from "@/assets/chordnote-preview.jpg.asset.json";
+import chordnotePreview from "@/assets/images/chordnote-preview.jpg";
 
 const features = [
   "Lyrics with chords above them",
@@ -36,7 +36,7 @@ export default function ChordNoteCTA() {
           <div className="flex flex-col gap-4 md:justify-end">
           <div className="chordnote-preview hidden max-h-[280px] flex-1 md:block">
               <img
-                src={previewAsset.url}
+                src={chordnotePreview}
                 alt="ChordNote editor showing song details, transpose controls and lyrics input"
                 loading="lazy"
                 className="h-full w-full object-cover object-top"
