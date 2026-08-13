@@ -84,6 +84,10 @@ export default function HeroFeatured({
     if (featuredRef.current) {
       featuredRef.current.style.opacity = `${fadeP}`;
     }
+    // Furniture pops in only after the article copy has essentially finished revealing.
+    if (furnitureRef.current) {
+      furnitureRef.current.classList.toggle("room-furniture--in", fadeP > 0.8);
+    }
   }, []);
 
   useEffect(() => {
