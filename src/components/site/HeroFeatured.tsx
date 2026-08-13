@@ -2,6 +2,7 @@ import { lazy, useCallback, useEffect, useRef } from "react";
 import { ClientOnly, Link } from "@tanstack/react-router";
 
 const ShapeGrid = lazy(() => import("./ShapeGrid"));
+import RoomFurniture from "./RoomFurniture";
 import { formatPostDate, type Post } from "@/lib/posts";
 
 const clamp = (v: number, a: number, b: number) => (v < a ? a : v > b ? b : v);
