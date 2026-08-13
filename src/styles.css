@@ -245,10 +245,18 @@
 @media (min-width: 768px) {
   .hero-featured__hero,
   .hero-featured__article {
-    padding: 8% 13%;
+    padding: 8% 16%;
     overflow-y: visible;
   }
 }
+
+@media (min-width: 1280px) {
+  .hero-featured__hero,
+  .hero-featured__article {
+    padding: 8% 19%;
+  }
+}
+
 
 .hero-featured__hero {
   opacity: 1;
