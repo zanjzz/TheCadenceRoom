@@ -21,7 +21,7 @@ type HeroFeaturedProps = {
 
 export default function HeroFeatured({
   post,
-  startWidth = 78,
+  startWidth = 62,
   startHeight = 62,
   startRadius = 0,
   endRadius = 0,
@@ -163,6 +163,33 @@ export default function HeroFeatured({
   return (
     <div className="hero-featured" ref={trackRef} id="top">
       <div className="hero-featured__stage" ref={stageRef}>
+        <div className="hero-featured__bg" aria-hidden="true">
+          <ClientOnly fallback={null}>
+            <GradientWaves
+              horizonColor="#15cce3"
+              waveColor="#15ffff"
+              crestColor="#08c2e4"
+              speed={0.4}
+              amplitude={2.5}
+              waveScale={0.5}
+              waveRatio={0.85}
+              swell={19.5}
+              turbulence={20.5}
+              tilt={0.93}
+              zoom={1}
+              height={2}
+              fogDepth={18}
+              detail="medium"
+              brightness={1.2}
+              opacity={1}
+              mouseInteraction
+              parallaxStrength={0.32}
+              grain
+              grainIntensity={0}
+            />
+          </ClientOnly>
+        </div>
+
         <div className="hero-featured__frame" ref={frameRef} />
 
         <div className="hero-featured__overlay">
