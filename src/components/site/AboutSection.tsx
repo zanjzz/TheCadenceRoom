@@ -1,4 +1,4 @@
-import zanjAsset from "@/assets/zanj-piano.jpg.asset.json";
+import zanjPiano from "@/assets/images/zanj-piano.jpg";
 
 const links = [
   { label: "Email", value: "zanj269@gmail.com", href: "mailto:zanj269@gmail.com" },
@@ -19,7 +19,7 @@ export default function AboutSection() {
               <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
               <div className="about-pfp">
                 <img
-                  src={zanjAsset.url}
+                  src={zanjPiano}
                   alt="Zanj playing keys during a live set"
                   loading="lazy"
                 />
