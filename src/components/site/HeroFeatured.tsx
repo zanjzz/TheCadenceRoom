@@ -37,6 +37,7 @@ export default function HeroFeatured({
   const frameRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
+  const furnitureRef = useRef<HTMLDivElement>(null);
 
   const cfg = useRef({
     startWidth,
