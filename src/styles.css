@@ -175,17 +175,28 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: var(--background);
 }
 
-/* Animated WebGL waves sit on the hero body background, behind the zooming frame. */
+/* Animated grid sits on the hero body background, behind the zooming frame. */
 .hero-featured__bg {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
 }
+
+.shapegrid-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
 .hero-featured__frame {
   position: absolute;
