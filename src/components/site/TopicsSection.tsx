@@ -24,7 +24,7 @@ export default function TopicsSection() {
         </div>
 
         <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div className="topic-wheel-shell relative h-[360px] overflow-hidden lg:h-[440px]">
+          <div className="topic-wheel-shell enter-up enter-d2 relative h-[360px] overflow-hidden lg:h-[440px]">
             {/* Decorative corner brackets */}
             <span className="pointer-events-none absolute top-3 left-3 h-6 w-6 border-l-[3px] border-t-[3px] border-accent" aria-hidden />
             <span className="pointer-events-none absolute bottom-3 right-3 h-6 w-6 border-r-[3px] border-b-[3px] border-accent" aria-hidden />
