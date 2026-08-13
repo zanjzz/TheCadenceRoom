@@ -15,7 +15,7 @@ export default function TopicsSection() {
       className="bg-surface text-surface-foreground scroll-mt-24 border-y-[3px] border-border py-16 md:py-24"
     >
       <div className="section-shell">
-        <div className="mb-8">
+        <div className="enter-up enter-d1 mb-8">
           <span className="eyebrow">Topics</span>
           <h2 className="mt-3 text-3xl md:text-5xl">Pick your lane</h2>
           <p className="text-muted-foreground mt-3 max-w-md text-sm font-medium">
