@@ -6,7 +6,7 @@ import AboutSection from "@/components/site/AboutSection";
 import ChordNoteCTA from "@/components/site/ChordNoteCTA";
 import { getFeaturedPost } from "@/lib/posts";
 
-const title = "Harmonic Progress — Chord Progressions & Practical Harmony";
+const title = "The Cadence Room — Chord Progressions & Practical Harmony";
 const description =
   "Articles on chord progressions, voice leading, gospel and jazz harmony for church musicians, songwriters, and producers.";
 
