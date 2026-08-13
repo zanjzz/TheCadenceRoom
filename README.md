@@ -1,6 +1,6 @@
-# Harmonic Progress
+# The Cadence Room
 
-Harmonic Progress is a personal blog by Zanj about learning and making music. It explores music theory, musicianship, songwriting, production, and the ideas and discoveries that come from actually playing and creating music.
+The Cadence Room is a personal blog by Zanj about learning and making music. It explores music theory, musicianship, songwriting, production, and the ideas and discoveries that come from actually playing and creating music.
 
 Articles start from real questions, playing problems, and things I'm learning along the way — with a focus on understanding music as something you can hear, apply, and experience, not just memorize.
 
@@ -19,7 +19,7 @@ Requires [Node.js](https://nodejs.org) 20+ (or [Bun](https://bun.sh)).
 
 ```sh
 git clone <this-repository-url>
-cd HarmonicProgress
+cd the-cadence-room
 npm install
 ```
 

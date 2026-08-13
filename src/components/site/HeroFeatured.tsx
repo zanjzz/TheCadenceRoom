@@ -78,11 +78,9 @@ export default function HeroFeatured({
     const fadeP = smoothstep(0, 1, clamp((p - splitPoint) / (1 - splitPoint), 0, 1));
     if (heroRef.current) {
       heroRef.current.style.opacity = `${1 - fadeP}`;
-      heroRef.current.style.pointerEvents = fadeP > 0.5 ? "none" : "auto";
     }
     if (featuredRef.current) {
       featuredRef.current.style.opacity = `${fadeP}`;
-      featuredRef.current.style.pointerEvents = fadeP > 0.5 ? "auto" : "none";
     }
   }, []);
 
@@ -171,7 +169,7 @@ export default function HeroFeatured({
               speed={0.34}
               squareSize={51}
               direction="diagonal"
-              borderColor="#113c45"
+              borderColor="#113c45a0"
               hoverFillColor="#17d4ef"
               shape="square"
               hoverTrailAmount={0}
@@ -185,8 +183,8 @@ export default function HeroFeatured({
         <div className="hero-featured__overlay">
           <div className="hero-featured__hero" ref={heroRef}>
             <h1 className="hero-title">
-              <span className="accent-word">HARMONIC</span>
-              <span className="second-word">PROGRESS</span>
+              <span className="accent-word">THE CADENCE</span>
+              <span className="second-word">ROOM</span>
             </h1>
             <p>Insights, lessons, and discoveries from my journey to becoming a better musician</p>
             <div className="hero-ctas">

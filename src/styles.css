@@ -5,7 +5,7 @@
 @custom-variant light (&:is(.light *));
 
 /*
- * Harmonic Progress design system.
+ * The Cadence Room design system.
  * Dark-first palette: #080808 / #111111 / #f4f1e8 / #dfff00
  * Light theme (.light on <html>): #f4f1e8 / #ffffff / #111111 / #c8e600
  */
@@ -187,7 +187,6 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none;
 }
 
 .shapegrid-canvas {
@@ -219,6 +218,12 @@
   position: absolute;
   inset: 0;
   z-index: 2;
+  pointer-events: none;
+}
+
+.hero-featured__overlay a,
+.hero-featured__overlay button {
+  pointer-events: auto;
 }
 
 .hero-featured__hero,
@@ -234,6 +239,7 @@
   color: var(--accent-foreground);
   will-change: opacity;
   overflow-y: auto;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {

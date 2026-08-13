@@ -17,13 +17,13 @@ export const Route = createFileRoute("/topics/$topicSlug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Topic unavailable — Harmonic Progress" },
+          { title: "Topic unavailable — The Cadence Room" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { topic } = loaderData;
-    const title = `${topic.name} — Harmonic Progress`;
+    const title = `${topic.name} — The Cadence Room`;
     return {
       meta: [
         { title },

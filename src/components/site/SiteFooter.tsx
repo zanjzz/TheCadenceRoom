@@ -18,7 +18,7 @@ export default function SiteFooter() {
       <div className="section-shell grid gap-8 py-12 text-center md:grid-cols-3 md:text-left">
         <div>
           <Link to="/" className="font-[family-name:var(--font-display)] text-xl uppercase">
-            Harmonic.Progress
+            The Cadence Room
           </Link>
           <p className="mx-auto mt-3 max-w-xs text-sm font-medium opacity-80 md:mx-0">
             Learning music. Making music. Making progress.
@@ -65,7 +65,7 @@ export default function SiteFooter() {
 
       <div className="border-t-[3px] border-border">
         <div className="section-shell py-4 text-center text-xs font-bold uppercase tracking-widest md:text-left">
-          © 2026 Harmonic Progress
+          © 2026 The Cadence Room
         </div>
       </div>
     </footer>

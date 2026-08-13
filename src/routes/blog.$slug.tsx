@@ -11,13 +11,13 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Article unavailable — Harmonic Progress" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Article unavailable — The Cadence Room" }, { name: "robots", content: "noindex" }],
       };
     }
     const { post } = loaderData;
     return {
       meta: [
-        { title: `${post.title} — Harmonic Progress` },
+        { title: `${post.title} — The Cadence Room` },
         { name: "description", content: post.excerpt },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.excerpt },

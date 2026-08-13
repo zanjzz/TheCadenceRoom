@@ -30,7 +30,7 @@ export default function SiteHeader() {
             onClick={scrollTop}
             className="nav-brand font-[family-name:var(--font-display)] text-sm uppercase tracking-tight text-foreground md:text-base"
           >
-            Harmonic<span className="text-accent">.</span>Progress
+            The Cadence Room
           </Link>
 
           <span className="nav-divider hidden md:block" aria-hidden="true" />
