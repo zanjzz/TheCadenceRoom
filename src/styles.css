@@ -245,7 +245,7 @@
 @media (min-width: 768px) {
   .hero-featured__hero,
   .hero-featured__article {
-    padding: 8% 10%;
+    padding: 8% 13%;
     overflow-y: visible;
   }
 }
