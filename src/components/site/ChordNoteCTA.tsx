@@ -48,7 +48,7 @@ export default function ChordNoteCTA() {
               rel="noreferrer"
               className="brut-border brut-shadow brut-press chordnote-btn bg-accent text-accent-foreground block px-7 py-4 text-center text-sm font-bold uppercase tracking-widest"
             >
-              Open ChordNote
+              Visit ChordNote
             </a>
           </div>
         </div>

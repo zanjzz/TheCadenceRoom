@@ -18,21 +18,16 @@ export default function AboutSection() {
             <div className="flex items-start justify-between gap-4">
               <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
               <div className="about-pfp">
-                <img
-                  src={zanjPiano}
-                  alt="Zanj playing keys during a live set"
-                  loading="lazy"
-                />
+                <img src={zanjPiano} alt="Zanj playing keys during a live set" loading="lazy" />
               </div>
             </div>
             <p className="text-base font-medium">
-              Hey — I'm Zanj. The Cadence Room is my personal blog, made for fellow musicians,
-              songwriters, and producers who want to understand music on a deeper level. I'm
-              learning, experimenting, and sharing what I discover along the way — so learn with
-              me, and let's make some musical progress.
+              Yo! I'm Zanj. The Cadence Room is my personal blog, made for fellow musicians who want
+              to understand music on a deeper level. I'm learning, experimenting, and sharing what I
+              discover along the way, so learn and jam with me and this room :D
             </p>
             <p className="text-muted-foreground text-base font-medium">
-              Every article starts from a real playing problem: a turnaround that will not resolve,
+              Every article starts from a real playing problem, a turnaround that will not resolve,
               a bridge that goes nowhere, a keyboard part burying the vocal. No filler, no
               gatekeeping.
             </p>
@@ -43,14 +38,14 @@ export default function AboutSection() {
           id="contact"
           className="brut-border brut-shadow bg-secondary text-secondary-foreground enter-up enter-d3 scroll-mt-24 overflow-hidden"
         >
-
           <div className="border-b-[3px] border-border bg-card text-card-foreground px-4 py-2 text-[0.7rem] font-bold uppercase tracking-widest">
             Get in touch
           </div>
           <div className="p-5 md:p-7">
             <p className="text-base font-medium">
-              Questions, corrections, or a topic request? Reach me directly on any of these — it's
-              just me on the other end.
+              Questions, corrections, or a topic request? Or if you just want to talk to me about
+              literally anything, reach me directly through any of these. It’s just me on the other
+              end.
             </p>
 
             <ul className="mt-5 space-y-3">
