@@ -1,5 +1,3 @@
-import zanjPiano from "@/assets/images/zanj-piano.jpg";
-
 const links = [
   { label: "Email", value: "zanj269@gmail.com", href: "mailto:zanj269@gmail.com" },
   { label: "Instagram", value: "@zanj629", href: "https://www.instagram.com/zanj629/" },
@@ -15,21 +13,16 @@ export default function AboutSection() {
             About The Cadence Room
           </div>
           <div className="space-y-4 p-5 md:p-7">
-            <div className="flex items-start justify-between gap-4">
-              <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
-              <div className="about-pfp">
-                <img src={zanjPiano} alt="Zanj playing keys during a live set" loading="lazy" />
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl">Theory that survives the bandstand</h2>
             <p className="text-base font-medium">
-              Yo! I'm Zanj. The Cadence Room is my personal blog, made for fellow musicians who want
-              to understand music on a deeper level. I'm learning, experimenting, and sharing what I
-              discover along the way, so learn and jam with me and this room :D
+              The Cadence Room is a music-focused publication built for players, writers, and curious
+              listeners who want to understand how harmony actually works. It gathers practical ideas,
+              techniques, and perspectives from across jazz, gospel, pop, and theory — then distills
+              them into clear, useful reading.
             </p>
             <p className="text-muted-foreground text-base font-medium">
-              Every article starts from a real playing problem, a turnaround that will not resolve,
-              a bridge that goes nowhere, a keyboard part burying the vocal. No filler, no
-              gatekeeping.
+              Every article starts from a real playing problem: a turnaround that will not resolve, a
+              bridge that goes nowhere, a keyboard part burying the vocal. No filler, no gatekeeping.
             </p>
           </div>
         </div>
