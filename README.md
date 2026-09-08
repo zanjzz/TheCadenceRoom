@@ -1,8 +1,8 @@
 # The Cadence Room
 
-The Cadence Room is a personal blog by Zanj about learning and making music. It explores music theory, musicianship, songwriting, production, and the ideas and discoveries that come from actually playing and creating music.
+The Cadence Room is a personal blog by Zanj about learning and making music. It explores music theory, musicianship, songwriting and the ideas and discoveries that come from actually playing and creating music.
 
-Articles start from real questions, playing problems, and things I'm learning along the way — with a focus on understanding music as something you can hear, apply, and experience, not just memorize.
+Articles start from real questions, playing problems, and things I'm learning along the way — with a focus on understanding music as something you can apply, and experience, not just memorize.
 
 ## Tech stack
 
@@ -67,6 +67,4 @@ src/lib/            Post loading, topic metadata, theme provider
 src/styles.css      Design tokens and global styles
 ```
 
-## License
-
-Personal project. All article content © Zanj.
+Personal project. © Zanj.
