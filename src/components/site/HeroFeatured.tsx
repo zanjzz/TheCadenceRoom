@@ -136,13 +136,15 @@ export default function HeroFeatured({
 
     const onScroll = () => {
       target = readProgress();
-      if (cfg.current.smoothing <= 0 || reduceMotion) {
+      const isNarrow = window.innerWidth < 768;
+      if (cfg.current.smoothing <= 0 || reduceMotion || isNarrow) {
         current = target;
         apply(current);
         return;
       }
       kick();
     };
+
 
     const onResize = () => {
       measure();
