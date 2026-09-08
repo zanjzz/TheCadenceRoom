@@ -162,13 +162,15 @@ export default function HeroFeatured({
     // past the start.
     let touchY = 0;
     const onTouchStart = (e: TouchEvent) => {
-      touchY = e.touches[0].clientY;
+      const t = e.touches[0];
+      if (t) touchY = t.clientY;
     };
     const onTouchMove = (e: TouchEvent) => {
       if (window.innerWidth >= 768) return;
-      const y = e.touches[0].clientY;
-      const dy = touchY - y;
-      touchY = y;
+      const t = e.touches[0];
+      if (!t) return;
+      const dy = touchY - t.clientY;
+      touchY = t.clientY;
       const c = cfg.current;
       const spanPx = stageH * (c.growDistance + c.holdDistance);
       if (window.scrollY > spanPx) return; // hero is behind us; scroll normally
