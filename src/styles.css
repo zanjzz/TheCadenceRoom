@@ -296,11 +296,12 @@
   justify-content: center;
 }
 
-/* Mobile only: both CTAs share the width of the wider "Browse Articles" button. */
+/* Mobile only: both CTAs stack vertically and share the same full width. */
 @media (max-width: 767px) {
   .hero-featured__hero .hero-ctas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 22rem;
     margin-inline: auto;
@@ -308,6 +309,7 @@
 
   .hero-featured__hero .hero-ctas a {
     width: 100%;
+    max-width: 22rem;
     text-align: center;
     padding-inline: 0.5rem;
   }
