@@ -101,6 +101,9 @@ export default function HeroFeatured({
     let target = 0;
     let running = false;
     let stageH = 0;
+    let lastTouchY: number | null = null;
+    let mobileGestureProgress = 0;
+    let handingOff = false;
 
     const measure = () => {
       stageH = window.innerHeight;
@@ -114,6 +117,23 @@ export default function HeroFeatured({
       const span = stageH * (c.growDistance + c.holdDistance);
       const top = track.getBoundingClientRect().top;
       return clamp(-top / span, 0, 1);
+    };
+
+    const isMobile = () => window.innerWidth < 768;
+
+    const setMobileProgress = (next: number) => {
+      const c = cfg.current;
+      const span = stageH * (c.growDistance + c.holdDistance);
+      mobileGestureProgress = clamp(next, 0, 1);
+      target = mobileGestureProgress;
+      current = target;
+      apply(current);
+
+      if (mobileGestureProgress >= 1 && !handingOff) {
+        handingOff = true;
+        const trackTop = window.scrollY + track.getBoundingClientRect().top;
+        window.scrollTo({ top: trackTop + span, behavior: "auto" });
+      }
     };
 
     const tick = () => {
@@ -136,13 +156,48 @@ export default function HeroFeatured({
 
     const onScroll = () => {
       target = readProgress();
-      const isNarrow = window.innerWidth < 768;
-      if (cfg.current.smoothing <= 0 || reduceMotion || isNarrow) {
+      if (isMobile()) {
+        if (handingOff || target >= 1) {
+          mobileGestureProgress = target;
+          current = target;
+          apply(current);
+        }
+        return;
+      }
+      if (cfg.current.smoothing <= 0 || reduceMotion) {
         current = target;
         apply(current);
         return;
       }
       kick();
+    };
+
+    const onTouchStart = (event: TouchEvent) => {
+      if (!isMobile() || handingOff || mobileGestureProgress >= 1) return;
+      lastTouchY = event.touches[0]?.clientY ?? null;
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (!isMobile() || handingOff || mobileGestureProgress >= 1) return;
+      const touchY = event.touches[0]?.clientY;
+      if (touchY === undefined || lastTouchY === null) return;
+
+      event.preventDefault();
+      const span = stageH * (cfg.current.growDistance + cfg.current.holdDistance);
+      const delta = lastTouchY - touchY;
+      lastTouchY = touchY;
+      setMobileProgress(mobileGestureProgress + delta / span);
+    };
+
+    const onTouchEnd = () => {
+      lastTouchY = null;
+    };
+
+    const onWheel = (event: WheelEvent) => {
+      if (!isMobile() || handingOff || mobileGestureProgress >= 1) return;
+      event.preventDefault();
+      const span = stageH * (cfg.current.growDistance + cfg.current.holdDistance);
+      setMobileProgress(mobileGestureProgress + event.deltaY / span);
     };
 
 
@@ -156,15 +211,27 @@ export default function HeroFeatured({
     measure();
     target = readProgress();
     current = target;
+    mobileGestureProgress = target;
+    handingOff = target >= 1;
     apply(current);
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
+    stage.addEventListener("touchstart", onTouchStart, { passive: true });
+    stage.addEventListener("touchmove", onTouchMove, { passive: false });
+    stage.addEventListener("touchend", onTouchEnd, { passive: true });
+    stage.addEventListener("touchcancel", onTouchEnd, { passive: true });
+    stage.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      stage.removeEventListener("touchstart", onTouchStart);
+      stage.removeEventListener("touchmove", onTouchMove);
+      stage.removeEventListener("touchend", onTouchEnd);
+      stage.removeEventListener("touchcancel", onTouchEnd);
+      stage.removeEventListener("wheel", onWheel);
     };
   }, [apply]);
 
