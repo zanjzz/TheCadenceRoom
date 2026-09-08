@@ -9,7 +9,7 @@ tags: ["songwriting", "form"]
 
 ## A bridge answers a question
 
-If the verse and chorus already said everything, the bridge has nothing to do.
+Bridge is where we can build up for the next parts. If the verse and chorus already said everything, the bridge has nothing to do.
 
 Common ways to shift vantage point:
 
