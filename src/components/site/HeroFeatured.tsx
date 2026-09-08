@@ -156,11 +156,41 @@ export default function HeroFeatured({
     current = target;
     apply(current);
 
+    // Mobile: touch-drag drives the hero animation directly (via programmatic
+    // scroll) instead of the page rubber-banding under the finger. Normal page
+    // scrolling resumes once the animation is complete, or when pulling back
+    // past the start.
+    let touchY = 0;
+    const onTouchStart = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) touchY = t.clientY;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (window.innerWidth >= 768) return;
+      const t = e.touches[0];
+      if (!t) return;
+      const dy = touchY - t.clientY;
+      touchY = t.clientY;
+      const c = cfg.current;
+      const spanPx = stageH * (c.growDistance + c.holdDistance);
+      if (window.scrollY > spanPx) return; // hero is behind us; scroll normally
+      const p = readProgress();
+      if (p >= 1 && dy > 0) return; // animation done; hand off to page scroll
+      if (p <= 0 && dy < 0) return; // at the very start; allow native behavior
+      e.preventDefault();
+      window.scrollTo(0, clamp(window.scrollY + dy, 0, spanPx));
+      onScroll();
+    };
+
+    stage.addEventListener("touchstart", onTouchStart, { passive: true });
+    stage.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
+      stage.removeEventListener("touchstart", onTouchStart);
+      stage.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };

@@ -296,6 +296,23 @@
   justify-content: center;
 }
 
+/* Mobile only: both CTAs share the width of the wider "Browse Articles" button. */
+@media (max-width: 767px) {
+  .hero-featured__hero .hero-ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .hero-featured__hero .hero-ctas a {
+    width: 100%;
+    text-align: center;
+    padding-inline: 0.5rem;
+  }
+}
+
 .hero-featured__article-inner {
   width: 100%;
   max-width: 1000px;
